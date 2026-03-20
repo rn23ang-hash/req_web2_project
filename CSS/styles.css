@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/*index*/
+
+.index-header {
+    display: inline-block;
+    width: 100%;
+    border: 1px solid black;
+}
+
+.index-header nav {
+    width: 45%;
+    
+}
+
+.index-header ul {
+    font-weight: bold;
+}
+
+/*How to apply Tailwind CSS files*/
+
+/* .class-name-here {
+    @apply /*Apply your stuff here; 
+    
+}
+    */

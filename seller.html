@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller's Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+</head>
+<body class="font-lexend bg-gray-50 text-gray-800">
+    
+    <header class="bg-white border-b border-green-100 py-6">
+       <section class="max-w-5xl mx-auto px-4 flex items-center space-x-6">
+            <div class="relative">
+                <img class="h-20 w-20 rounded-full border-4 border-green-600 object-cover shadow-sm" src="PICTURES/default-profile.svg" alt="Seller profile">
+            </div>
+            <div class="flex flex-col">
+                <h1 id="user-fullname" class="text-2xl font-bold text-gray-900">EcoStore Admin</h1>
+                <div class="text-sm text-gray-500 space-y-1">
+                    <p>Store ID: <span id="user-email" class="font-medium text-green-700">seller@ecoshop.com</span></p>
+                    <p>Mobile: <span id="user-mobile">0912-345-6789</span></p>
+                    <p>Type: <span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">Seller</span></p>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <nav class="bg-green-800 shadow-lg sticky top-0 z-10">
+        <ul class="max-w-5xl mx-auto flex space-x-8 text-green-50 font-medium p-4">
+            <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-white">Dashboard</li>
+            <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent">My Products</li>
+            <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent">Active Orders</li>
+            <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent">Sales History</li>
+            <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent">
+                <a href="products.html">View Shop</a>
+            </li>
+            <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent text-green-300">Settings</li>
+        </ul>
+    </nav>
+
+    <main class="max-w-5xl mx-auto p-4 md:p-8 space-y-12">
+        
+        <section id="seller-actions" class="bg-green-600 rounded-2xl shadow-md p-6 text-white flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <h2 class="text-xl font-bold">Grow your eco-inventory</h2>
+                <p class="opacity-90">Ready to list a new sustainable product?</p>
+            </div>
+            <a href="add-items.html"
+                class="bg-white text-green-700 hover:bg-green-50 font-bold py-3 px-8 rounded-xl shadow-sm transition-all active:scale-95 flex items-center inline-block">
+                <span class="mr-2 text-xl">+</span> Add New Product
+            </a>
+        </section>
+
+        <section id="inventory-list" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+            <h2 class="text-xl font-bold mb-6 flex items-center">
+                <span class="bg-green-600 w-2 h-6 rounded-full mr-3"></span>
+                Active Inventory
+            </h2>
+            
+            <div class="space-y-4">
+                <div class="flex items-center justify-between p-4 rounded-xl border border-gray-100 hover:border-green-200 transition-colors">
+                    <div class="flex items-center space-x-4">
+                        <div class="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center text-xs text-gray-400">IMG</div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Bamboo Toothbrush</h3>
+                            <p class="text-sm text-gray-500">Stock: <span class="text-green-600 font-medium">45 units</span></p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <p class="font-bold text-lg text-gray-900">₱85.00</p>
+                        <button class="p-2 text-gray-400 hover:text-green-600 transition-colors">
+                            <small class="font-bold underline">Edit</small>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between p-4 rounded-xl border border-gray-100 hover:border-green-200 transition-colors">
+                    <div class="flex items-center space-x-4">
+                        <div class="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center text-xs text-gray-400">IMG</div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Organic Cotton Tote</h3>
+                            <p class="text-sm text-gray-500">Stock: <span class="text-red-500 font-medium">2 units (Low)</span></p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <p class="font-bold text-lg text-gray-900">₱150.00</p>
+                        <button class="p-2 text-gray-400 hover:text-green-600 transition-colors">
+                            <small class="font-bold underline">Edit</small>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pending-orders" class="bg-blue-50 rounded-2xl p-6 border border-blue-100">
+            <h2 class="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                <span class="bg-blue-500 w-2 h-6 rounded-full mr-3"></span>
+                Orders to Fulfill
+            </h2>
+            <div class="bg-white p-5 rounded-xl shadow-sm border border-blue-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <h3 class="font-bold text-lg text-gray-900">Order #12345</h3>
+                    <p class="text-sm text-gray-600">Customer: <span class="font-medium text-blue-600">John Doe</span> • 2 items • ₱235.00</p>
+                    <p class="text-xs font-semibold text-orange-600 mt-1 uppercase">Action Required: Ship by tomorrow</p>
+                </div>
+                <div class="flex space-x-2 w-full md:w-auto">
+                    <button class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-6 py-2 rounded-lg transition-colors">
+                        Mark as Shipped
+                    </button>
+                    <button class="px-4 py-2 border border-gray-200 text-gray-500 hover:bg-gray-50 rounded-lg text-sm">
+                        Details
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="sales-history" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+            <div class="mb-6 flex justify-between items-end">
+                <div>
+                    <h2 class="text-xl font-bold text-gray-900">Sales History</h2>
+                    <p class="text-sm text-gray-500 italic">Recent successful transactions</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-xs text-gray-400 uppercase font-bold tracking-wider">Total Revenue</p>
+                    <p class="text-2xl font-bold text-green-700">₱4,250.00</p>
+                </div>
+            </div>
+            
+            <div class="overflow-hidden rounded-xl border border-gray-100">
+                <div class="bg-gray-50 p-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm border-b">
+                    <div><p class="text-gray-400 uppercase text-xs font-bold">Date</p><span>Mar 08, 2026</span></div>
+                    <div><p class="text-gray-400 uppercase text-xs font-bold">Item</p><span class="font-medium text-green-700">Glass Straw Set</span></div>
+                    <div><p class="text-gray-400 uppercase text-xs font-bold">Customer</p><span>Jane Smith</span></div>
+                    <div><p class="text-gray-400 uppercase text-xs font-bold">Earnings</p><span class="font-bold">₱120.00</span></div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="py-10 text-center text-gray-400 text-sm">
+        <p>EcoShop, an OM-BSIT Project</p>
+    </footer>
+
+    <script src="JS/script.js"></script>
+</body>
+</html>

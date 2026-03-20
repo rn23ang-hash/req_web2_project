@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View your Cart | EcoShop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+</head>
+<body class="font-lexend bg-gray-50 min-h-screen flex flex-col">
+
+    <header class="p-6">
+       <a href="products.html" class="inline-block hover:opacity-80 transition-opacity">
+            <img src="PICTURES/Shop_Logo_V2.svg" alt="EcoShop Logo" class="h-12 w-auto">
+       </a>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center p-4">
+        <div class="max-w-md w-full bg-white rounded-3xl shadow-xl shadow-green-900/5 border border-gray-100 p-8 text-center">
+            
+            <div class="mb-6 flex justify-center">
+                <div class="bg-green-100 p-4 rounded-full">
+                    <div class="bg-green-600 rounded-full p-4 shadow-lg shadow-green-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-3xl font-black text-gray-900 mb-3">Purchase Confirmed!</h2>
+            <p class="text-gray-500 leading-relaxed mb-8">
+                Thank you for your order. We've sent a confirmation email. Here is a summary of your transaction.
+            </p>
+
+            <div class="bg-gray-50 rounded-2xl p-5 mb-8 border border-dashed border-gray-200">
+                <div class="flex justify-between text-sm mb-2">
+                    <span class="text-gray-400">Order ID:</span>
+                    <span class="font-bold text-gray-700">#ECO-2026-8819</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span class="text-gray-400">Date:</span>
+                    <span class="font-bold text-gray-700">March 9, 2026</span>
+                </div>
+            </div>
+
+            <button class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-2xl shadow-lg shadow-green-200 transition-all active:scale-95">
+                Return to Home
+            </button>
+            </div>
+
+        </main>
+    <!-- <footer class="bg-gray-800 text-white text-center py-4">
+        <p>EcoShop, an OM-BSIT Project</p>
+    </footer> -->
+</body>
+</html>

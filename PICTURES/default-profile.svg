@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="143.59093mm"
+   height="143.59091mm"
+   viewBox="0 0 143.59093 143.59091"
+   version="1.1"
+   id="svg1"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showborder="false">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="143.59093"
+       height="143.59091"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-72.409102,-34.363633)">
+    <g
+       id="g3"
+       transform="translate(-32.522727,4.2954545)">
+      <circle
+         style="fill:#00a600;stroke-width:0.1"
+         id="path1"
+         cx="176.72728"
+         cy="101.86363"
+         r="71.795456" />
+      <circle
+         style="fill:#ffffff;stroke-width:0.0756757"
+         id="path2"
+         cx="176.72728"
+         cy="72.257568"
+         r="17.181816" />
+      <path
+         style="fill:#ffffff;stroke-width:0.1"
+         id="path3"
+         sodipodi:type="arc"
+         sodipodi:cx="-176.72728"
+         sodipodi:cy="-139.33521"
+         sodipodi:rx="40.5"
+         sodipodi:ry="40.5"
+         sodipodi:start="0"
+         sodipodi:end="3.1415927"
+         sodipodi:arc-type="slice"
+         d="m -136.22728,-139.33521 a 40.5,40.5 0 0 1 -20.25,35.07403 40.5,40.5 0 0 1 -40.5,0 40.5,40.5 0 0 1 -20.25,-35.07403 h 40.5 z"
+         transform="scale(-1)" />
+    </g>
+  </g>
+</svg>

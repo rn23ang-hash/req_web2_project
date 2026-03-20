@@ -1,0 +1,95 @@
+/* This CSS file is used in case Tailwind and Flowbite does not work.
+If you can get TW+FB working, please use those instead. */
+
+/* For index */
+body {
+    font-family: 'Lexend', 'sans-serif';
+}
+
+/* For debugging purposes*/
+
+div {
+    outline: 1px solid red;
+}
+
+
+.index-header {
+    min-height: 10vh;
+    outline: 1px solid black;
+}
+
+
+.index-main-section {
+    display: flex;
+    flex-direction: column;
+    outline: 1px solid black;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.main-title-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-title-screen .text-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.main-title-screen h1 {
+    font-size: 6rem;
+}
+
+.main-title-screen button {
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 0.7rem;
+    margin: 1rem;
+    min-width: 8em;
+    min-width: 100%;
+    border: none;
+}
+
+
+#sign-up-button {
+    background-color: green;
+    color: white;
+    font-family: 'Lexend';
+    
+}
+
+#sign-up-button:hover {
+    background-color: rgb(6, 87, 6);
+    transition: 0.5s;
+}
+
+#sign-in-button {
+    background-color: white;
+    color: black;
+    outline: 1px solid rgb(15, 119, 15);
+    font-family: 'Lexend';
+}
+
+#sign-in-button:hover {
+    background-color: rgb(242, 255, 242);
+    transition: 0.5s;
+}
+
+
+.button-div-index {
+    display: flex;
+    flex-direction: row;
+    row-gap: 5px;
+    width: auto;
+}
+
+/*Responsive Settings for Mobile Devices*/
+

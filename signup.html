@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - EcoShop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+
+    <main class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 w-full max-w-md">
+        <input type="hidden" id="user-role-tracker" value="buyer-acc">
+
+        <section id="pg-1" class="flex flex-col space-y-5">
+            <img src="PICTURES/Shop_Logo_V2.svg" alt="Logo" class="h-14 mx-auto mb-2">
+            <h2 class="text-2xl font-bold text-center text-gray-800">Create Account</h2>
+            
+            <div class="flex flex-col space-y-1">
+                <label class="text-sm font-semibold text-gray-600">Email Address</label>
+                <input id="signup-user-email" class="border border-gray-300 p-3 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition" placeholder="name@example.com" type="email">
+            </div>
+                
+            <div class="flex flex-col space-y-1">
+                <label class="text-sm font-semibold text-gray-600">Account Type</label>
+                <select id="signup-user-acctype" class="border border-gray-300 p-3 rounded-xl bg-white focus:ring-2 focus:ring-emerald-500 outline-none transition">
+                    <option value="buyer-acc">Regular Account (Buyer)</option>
+                    <option value="seller-acc">Seller Account</option>
+                </select>
+            </div>
+            <button onclick="nextPage('pg-1')" class="bg-emerald-600 text-white py-3 rounded-xl font-bold hover:bg-emerald-700 active:scale-[0.98] transition-all">Next</button>
+        </section>
+
+        <section id="signup-pg-2-buyer" class="hidden flex flex-col space-y-4">
+            <h2 class="text-xl font-bold text-emerald-800">Personal Details</h2>
+            <input id="signup-user-fullname" class="border p-3 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500" type="text" placeholder="Full Name">
+            <input id="signup-user-birthday" class="border p-3 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500" type="date">
+            <input id="signup-user-password" class="border p-3 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500" type="password" placeholder="Password">
+            <input id="signup-user-pwconfirm" class="border p-3 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500" type="password" placeholder="Confirm Password">
+            <button onclick="nextPage('signup-pg-2-buyer')" class="bg-emerald-600 text-white py-3 rounded-xl font-bold hover:bg-emerald-700 transition">Next</button>
+        </section>
+
+        <section id="signup-pg-3-buyer" class="hidden flex flex-col space-y-4">
+            <h2 class="text-xl font-bold text-emerald-800">Payment Method</h2>
+            <p class="text-sm text-gray-500 italic">Limited to Mobile Wallets for this demo.</p>
+            <select class="border p-3 rounded-xl bg-white focus:ring-2 focus:ring-emerald-500">
+                <option>GCash</option>
+                <option>Maya</option>
+            </select>
+            <input type="number" class="border p-3 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Mobile Number">
+            <button onclick="nextPage('signup-pg-3-buyer')" class="bg-emerald-600 text-white py-3 rounded-xl font-bold hover:bg-emerald-700 transition">Next</button>
+        </section>
+
+        <section id="signup-pg-4-buyer" class="hidden flex flex-col space-y-4">
+            <h2 class="text-xl font-bold text-emerald-800">Final Step</h2>
+            <label class="text-sm font-semibold">Home Address</label>
+            <textarea class="border p-3 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500" rows="3" placeholder="Street, Barangay, City..."></textarea>
+            <button onclick="nextPage('signup-pg-4-buyer')" class="bg-emerald-600 text-white py-3 rounded-xl font-bold hover:bg-emerald-700 transition">Complete Registration</button>
+        </section>
+
+        <section id="signup-pg-2-seller" class="hidden flex flex-col space-y-4">
+            <h2 class="text-xl font-bold text-emerald-800">Setup Your Store</h2>
+            <div class="flex flex-col space-y-1">
+                <label class="text-sm font-semibold text-gray-600">Shop Name</label>
+                <input type="text" class="border p-3 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500" placeholder="e.g. GreenTech Hub">
+            </div>
+            <div class="flex flex-col space-y-1">
+                <label class="text-sm font-semibold text-gray-600">Main Product Category</label>
+                <select class="border p-3 rounded-xl bg-white focus:ring-2 focus:ring-emerald-500">
+                    <option>Sustainable Goods</option>
+                    <option>Eco-friendly Gadgets</option>
+                    <option>Organic Food</option>
+                </select>
+            </div>
+            <button onclick="nextPage('signup-pg-2-seller')" class="bg-emerald-600 text-white py-3 rounded-xl font-bold hover:bg-emerald-700 transition">Open My Shop</button>
+        </section>
+        
+        <section id="signup-user-final_page" class="hidden flex flex-col items-center space-y-6 text-center animate-in fade-in duration-700">
+            <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center">
+                <svg class="w-10 h-10 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold text-gray-800">You're All Set!</h2>
+                <p class="text-gray-500 mt-2 px-4">Your account was successfully created. Ready to explore?</p>
+            </div>
+            <button onclick="finalRedirect()" class="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold hover:bg-emerald-700 transition ">Get Started</button>
+        </section>
+        
+    </main>
+
+    <script src="JS/signup.js"></script>
+</body>
+</html>
