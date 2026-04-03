@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: 'Lexend';
+    src: url(../FONTS/Lexend-Regular.ttf);
+}
+
 /*index*/
 
 .index-header {
@@ -15,6 +20,12 @@
 
 .index-header ul {
     font-weight: bold;
+}
+
+
+
+.lcss-lexend {
+    font-family: 'Lexend';
 }
 
 /*How to apply Tailwind CSS files*/
