@@ -1,3 +1,5 @@
+//This is the original version of signup.js before overhaul
+
 function nextPage(currentId) {
     const currentSection = document.getElementById(currentId);
     const role = document.getElementById('signup-user-acctype').value;
