@@ -5,6 +5,12 @@
     src: url(../FONTS/Lexend-Regular.ttf);
 }
 
+/* variables */
+
+:root {
+    --theme-green: rgb(30, 150, 30);
+}
+
 /*index*/
 
 .index-header {
@@ -22,11 +28,81 @@
     font-weight: bold;
 }
 
+.lcss-index_subtitle {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.lcss-index-button_container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+}
+
+
+.lcss-index-button_container a {
+    font-weight: bold;
+}
+
+.lcss-index_login, .lcss-index_signup {
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    min-height: 30px;
+}
+
+.lcss-index_login {
+    background-color: whitesmoke;
+    color: black;
+    
+    border: solid var(--theme-green) 0.2rem;
+    
+}
+
+.lcss-index_login:hover {
+    transition: 0.5s;
+    background-color: rgb(235, 255, 235);
+    border: solid var(--theme-green) 0.2rem;
+}
+
+.lcss-index_signup {
+    background-color: var(--theme-green);
+    color: white;
+}
+
+.lcss-index_login:hover {
+    transition: 0.5s;
+    background-color: rgb(89, 194, 89);
+}
+
+.lcss-signup > main {
+    padding: 1rem;
+}
+
+.lcss-gen-flexcolumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.lcss-gen-input {
+    padding: 0.5rem;
+
+}
+
 
 
 .lcss-lexend {
     font-family: 'Lexend';
+
 }
+
+
 
 /*How to apply Tailwind CSS files*/
 
