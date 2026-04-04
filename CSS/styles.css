@@ -3,15 +3,42 @@
 @font-face {
     font-family: 'Lexend';
     src: url(../FONTS/Lexend-Regular.ttf);
+    font-weight: 400;
+    font-style: normal;
 }
 
-/* variables */
+@font-face {
+    font-family: 'Lexend';
+    src: url(../FONTS/Lexend-Bold.ttf);
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lexend';
+    src: url(../FONTS/);
+}
+
+hr {
+    background-color: cadetblue;
+}
+
+
+/* MARK: variables */
 
 :root {
     --theme-green: rgb(30, 150, 30);
+    --debug-border: dashed 1px black;
+    --font-bold: 700;
+    --font-semibold: 500;
+    --padding-1: 1rem;
+    --justify-con-center: center;
+    --input-error: rgb(232, 144, 144);
+    --font-theme-green: rgb(27, 99, 27);
+
 }
 
-/*index*/
+/*MARK: index*/
 
 .index-header {
     display: inline-block;
@@ -28,6 +55,17 @@
     font-weight: bold;
 }
 
+.lcss-index_logo {
+    border: var(--debug-border);
+    padding: var(--padding-1);
+    
+}
+
+.lcss-index_logo img {
+    height: 70%;
+    width: 100%;
+}
+
 .lcss-index_subtitle {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -39,7 +77,6 @@
     gap: 1rem;
 
 }
-
 
 .lcss-index-button_container a {
     font-weight: bold;
@@ -55,6 +92,8 @@
     justify-content: center;
     align-content: center;
     min-height: 30px;
+    font-family: 'Lexend';
+    font-weight: var(--font-bold);
 }
 
 .lcss-index_login {
@@ -69,6 +108,7 @@
     transition: 0.5s;
     background-color: rgb(235, 255, 235);
     border: solid var(--theme-green) 0.2rem;
+    color: white;
 }
 
 .lcss-index_signup {
@@ -81,8 +121,43 @@
     background-color: rgb(89, 194, 89);
 }
 
+
+
+/* MARK: SIGNUP LOCAL CSS */
+
 .lcss-signup > main {
     padding: 1rem;
+}
+
+.lcss-signup_{
+
+}
+
+.lcss-signup-verify {
+    margin-bottom: 1rem;
+}
+
+.lcss-signup-button-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: whitesmoke;
+    width: 100%;
+    height: auto;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border-radius: 0 0 1rem 1rem;
+}
+
+/*MARK: general local css */
+
+button, 
+input, 
+select, 
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
 }
 
 .lcss-gen-flexcolumn {
@@ -92,16 +167,113 @@
 
 .lcss-gen-input {
     padding: 0.5rem;
+    margin-bottom: 0.7rem;
 
 }
 
+.lcss-gen-flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.lcss-gen-form-container {
+    flex-direction: column;
+    position: relative;
+    min-width: 400px;
+    width: 30%;
+    padding: 2rem;
+    align-items: stretch;
+    border: solid 1px black;
+    border-radius: 1rem;
+    
+    background-color: white;
+}
+
+.lcss-auth-main {
+    height: 100dvh;
+    background-color: var(--theme-green);
+}
+
+
+
+.lcss-gen-form-button, .lcss-gen-form-button-nbc {
+    width: 100%;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 0.7rem;
+    font-weight: 700;
+}
+
+.lcss-gen-form-button {
+    color: white;
+    background-color: var(--theme-green);
+}
+
+.lcss-gen-form-button-nbc {
+    color: var(--theme-green);
+    background-color: none;
+}
+
+
+.lcss-header-center, .lcss-header-left {
+    display: flex;
+    height: 10vh;
+    background-color: white;
+
+}
+
+.lcss-header-center img, .lcss-header-left img {
+    height: 3rem;
+    border: solid white 0.5px;
+}
+
+.lcss-header-left {
+   justify-content: flex-start;
+   align-items: flex-start;
+}
+
+.lcss-header-center {
+    justify-content: center;
+    align-items: center;
+
+}
+
+.lcss-form-div {
+    margin-bottom: 2rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.lcss-form-div input {
+    padding: 0.5rem;
+    margin-bottom: 0.7rem;
+}
+
+.lcss-form-div select {
+    padding: 0.5rem;
+    margin-bottom: 0.7rem;
+}
+
+.lcss-form-div label {
+    margin-bottom: 0.2rem;
+    color: var(--font-theme-green);
+}
 
 .lcss-lexend {
     font-family: 'Lexend';
 
 }
 
+.lcss-form-invalid-int {
+    background-
+}
+
+.debug-border {
+    border: var(--debug-border);
+}
 
 
 /*How to apply Tailwind CSS files*/

@@ -14,23 +14,26 @@
 
 </head>
 
-<body class="lcss-signup bg-gray-100 min-h-screen flex items-center justify-center p-4" style="font-family: 'Lexend';">
-    <header class="lcss-signup_header_left">
+<body class="lcss-signup .lcss-lexend bg-gray-100 min-h-screen flex items-center justify-center p-4" style="font-family: 'Lexend';">
+    <header class="lcss-header-center">
         <a href="../index.html">
             <img src="../PICTURES/EcoShop_Logo_V2-2.svg" alt="EcoShop logo" title="">
         </a>
         
     </header>
 
-    <main class="lcss-gen-flexcolumn bg-white p-8 rounded-2xl shadow-sm border border-gray-100 w-full max-w-md" style="border: solid black 1px">
+    <main class="lcss-auth-main lcss-gen-flexcolumn lcss-gen-flex-center debug-border bg-white p-8 rounded-2xl shadow-sm border border-gray-100 w-full max-w-md">
 
-    <form action="" class="signup-form">
-        <div class="localfunc-signup-page lcss-gen-flexcolumn">
+    <form action="" class="lcss-gen-form-container lcss-gen-flex-center">
+        <div class="localfunc-signup-page lcss-form-div lcss-gen-flexcolumn">
         
-            <h1>SIGN UP</h1>
+            <div class="form-action">
+                <h1>SIGN UP</h1>
+            </div>
+            
 
             <label for="user-email">Email</label>
-            <input type="email" id="user-email" placeholder="Enter your email" name="email" class="lcss-gen-input">
+            <input type=email" id="user-email" placeholder="Enter your email" name="email" class="lcss-gen-input">
 
             <label for="user-password">Password</label>
             <input type="password" name="password" id="user-password" placeholder="Enter your password" class="lcss-gen-input">
@@ -38,22 +41,65 @@
             <label for="user-confpassword">Confirm Password</label>
             <input type="password" id="user-confpassword" placeholder="Confirm your password" title="Match what you typed on the password input field" class="lcss-gen-input">
 
-            <div class="localfunc-button-container">
-                <button id="confirm-regis" type="button">NEXT</button>
-            </div>
+            <hr>
+
+            <div>Personal Information</div>
+
+            <label for="user-fname">First name</label>
+            <input type="text" id="user-fname" placeholder="Juan" name="first-name" class="lcss-gen-input">
+
+            <label for="user-password">Last name</label>
+            <input type="text" name="last-name" id="user-lname" placeholder="Dela Cruz" class="lcss-gen-input">
+
+            <div>Birthdate</div>
+
+            <label for="user-b-month">Month</label>
+            <select name="user-b-month" id="user-b-month">
+                <option value="">January</option>
+                <option value="">February</option>
+                <option value="">March</option>
+                <option value="">April</option>
+                <option value="">May</option>
+                <option value="">June</option>
+                <option value="">July</option>
+                <option value="">August</option>
+                <option value="">September</option>
+                <option value="">October</option>
+                <option value="">November</option>
+                <option value="">December</option>
+            </select>
+            <label for="user-b-day">Day</label>
+
+            <input type="number" id="user-b-day" placeholder="Day 1-31">
+
+            <label for="user-b-year">Year</label>
+            <input type="number" placeholder="e.g. 1970">
+
+
+
+
+            <!-- <div class="localfunc-button-container ">
+                <button id="confirm-regis" type="button" class="lcss-gen-form-button">NEXT</button>
+            </div> -->
         </div>
 
-        <div class="localfunc-signup-page">
-            <h1>VERIFY YOUR EMAIL</h1>
-            <p>We have sent an verification code to your email. Enter the code you received below to sign up.</p>
+        <!-- 
+        <div class="lf-signup-page lcss-gen-flexcolumn" style="display: none">
+            <h1>VERIFY</h1>
+            <p class="lcss-signup-verify-subtitle">We have sent a verification code to your email. Enter the code you received below to sign up.</p>
             <label for="verification-code">Enter Code</label>
 
-            <input type="text" inputmode="numeric" pattern="[0-9]*" id="verification-code" required>
+            <input type="text" inputmode="numeric" pattern="[0-9]*" id="verification-code" required placeholder="Code" class="lcss-gen-input">
 
-            <button class="" id="verify-input">VERIFY</button>
-            <button id="prev-tab">Change email and password</button>
+            <button class="lcss-gen-form-button" id="verify-input">VERIFY</button>
+            <button id="prev-tab" class="lcss-gen-form-button-nbc">Change email and password</button>
+
+        </div> -->
+
+        <div class="lcss-signup-button-container">
+            <button class="lcss-gen-form-button">CONFIRM</button>
         </div>
-    </form>
+        </form>
     </main>
 
     <script src="JS/signup.js"></script>
