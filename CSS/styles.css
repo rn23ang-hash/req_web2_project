@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+/*This file is the master CSS file*/
+
 @font-face {
     font-family: 'Lexend';
     src: url(../FONTS/Lexend-Regular.ttf);
