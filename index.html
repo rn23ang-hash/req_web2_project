@@ -13,39 +13,50 @@
 </head>
 
 <body class="min-h-screen flex flex-col lcss-lexend">
+
+    <div class="flex itmes-center justify-center">
+        <img src="PICTURES/EcoShop_Logo_V2-2.svg" alt="">
+    </div>
+
     <header class=" bg-green-800  shadow-md">
-  <nav class="flex items-center justify-between px-6 py-4">
+        <nav class="flex items-center justify-between px-6 py-4">
 
-    <a href="account.html" class="flex items-center hidden space-x-2" id="session-status-loggedin">
-      <img src="PICTURES/default-profile.svg" alt="Profile Picture" class="w-10 h-10 rounded-full border">
-      <span class="font-semibold text-white">Placeholder Name</span>
-    </a>
-
-    <div class="session-status-default">
-        <a href="USER-AUTH/login.html" class="x-8 py-3 font-semibold text-green-600 bg-white border-2 border-green-600 rounded-lg hover:bg-green-50 transition-colors">Log in</a>
-        <a href="USER-AUTH/signup.html" class="signup-button-index" class="px-8 py-3 font-semibold text-white bg-green-600 border-2 border-green-600 rounded-lg hover:bg-green-700 transition-colors">Sign up</a>
-    </div>
+            <div class="relative">
+                <input type="text" placeholder="Search products..."
+                    class="border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                <button class="absolute right-2 top-2 text-gray-500 hover:text-green-600">Go</button>
+            </div>
 
 
 
-    <ul class="flex space-x-6 text-white font-medium">
-      <li><a href="account.html" class="hover:text-green-600">Account</a></li>
-      <li><a href="account.html#account-incoming_orders" class="hover:text-green-600">Orders</a></li>
-      <li><a href="account.html#account-cart" class="hover:text-green-600">Cart</a></li>
-      <li><a href="account.html#account-history" class="hover:text-green-600">History</a></li>
-      <li><a href="help.html" class="hover:text-green-600">Help</a></li>
-    </ul>
+            <ul class="flex space-x-6 text-white font-medium">
+                <li><a href="account.html" class="hover:text-green-600">Account</a></li>
+                <li><a href="account.html#account-incoming_orders" class="hover:text-green-600">Orders</a></li>
+                <li><a href="account.html#account-cart" class="hover:text-green-600">Cart</a></li>
+                <li><a href="account.html#account-history" class="hover:text-green-600">History</a></li>
+                <li><a href="help.html" class="hover:text-green-600">Help</a></li>
+            </ul>
 
-    <div class="relative">
-      <input type="text" placeholder="Search products..." class="border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
-      <button class="absolute right-2 top-2 text-gray-500 hover:text-green-600">Go</button>
-    </div>
-  </nav>
-</header>
+            <a href="account.html" class="flex items-center hidden space-x-2" id="session-status-loggedin">
+                <img src="PICTURES/default-profile.svg" alt="Profile Picture" class="w-10 h-10 rounded-full border">
+                <span class="font-semibold text-white">Placeholder Name</span>
+            </a>
 
-<main class="grid grid-cols-4 gap-6 p-6 bg-gray-50 grow">
+            <div class="session-status-default">
+                <a href="USER-AUTH/login.html"
+                    class="px-5 py-3 font-semibold text-green-600 bg-white border-2 border-green-600 rounded-lg hover:bg-green-50 transition-colors">Log
+                    in</a>
+                <a href="USER-AUTH/signup.html"
+                    class="px-5 py-3 font-semibold text-white bg-green-600 border-2 border-green-600 rounded-lg hover:bg-green-700 transition-colors">Sign
+                    up</a>
+            </div>
 
-  <!-- <aside class="col-span-1 bg-white shadow rounded-lg p-4">
+        </nav>
+    </header>
+
+    <main class="grid grid-cols-4 gap-6 p-6 bg-gray-50 grow">
+
+        <!-- <aside class="col-span-1 bg-white shadow rounded-lg p-4">
     <h2 class="text-lg font-semibold mb-4">Categories</h2>
     <ul class="space-y-2 text-gray-700">
       <li><a href="#" class="hover:text-green-600">Electronics</a></li>
@@ -56,156 +67,162 @@
     </ul>
   </aside> -->
 
-  <section class="col-span-3 ">
-  <div class="mb-6">
-    <h2 class="text-xl font-bold text-gray-800 mb-2 mt-6 px-6">Recommended</h2>
-    
-    <div class="flex overflow-x-auto gap-5 pb-4 snap-x mb-8 px-6">
-    
-        <div class="bg-white shadow rounded-lg p-4 flex-shrink-0 w-64 snap-start flex flex-col justify-between">
-            <div>
-                <img src="product1.jpg" alt="Product 1" class="w-full h-40 object-cover rounded">
-                <h3 class="mt-2 font-semibold text-gray-700">Handwoven Basket</h3>
-                <p class="text-green-600 font-bold">PHP 50</p>
-                <div class="flex items-center text-sm text-gray-600 mt-1">
-                    <span class="text-yellow-400 mr-1">★★★★☆</span>
-                    <span>(4.1)</span>
-                </div>
-                <div class="mt-1 text-xs px-2 py-0.5 inline-block bg-gray-100 text-gray-600 rounded">
-                    Seller: <span class="font-medium text-gray-700">Seller 1</span>
-                </div>
-            </div>
-            <div class="mt-4 flex space-x-2">
-                <button
-                    class="flex-grow bg-green-600 text-white px-3 py-1.5 rounded text-sm font-medium hover:bg-green-700">Add
-                    to Cart</button>
-                <a href="item-details.html"
-                    class="px-3 py-1.5 rounded text-sm font-medium bg-gray-50 text-gray-700 border hover:bg-gray-100 hover:border-gray-300">View</a>
-            </div>
-        </div>
-    
-        <div class="bg-white shadow rounded-lg p-4 flex-shrink-0 w-64 snap-start flex flex-col justify-between">
-            <div>
-                <img src="product2.jpg" alt="Product 2" class="w-full h-40 object-cover rounded">
-                <h3 class="mt-2 font-semibold text-gray-700 truncate">Paperbag Pack 120pcs</h3>
-                <p class="text-green-600 font-bold">PHP 120</p>
-                <div class="flex items-center text-sm text-gray-600 mt-1">
-                    <span class="text-yellow-400 mr-1">★★★★★</span>
-                    <span>(5.0)</span>
-                </div>
-                <div class="mt-1 text-xs px-2 py-0.5 inline-block bg-gray-100 text-gray-600 rounded">
-                    Seller: <span class="font-medium text-gray-700">Seller 2</span>
-                </div>
-            </div>
-            <div class="mt-4 flex space-x-2">
-                <button
-                    class="flex-grow bg-green-600 text-white px-3 py-1.5 rounded text-sm font-medium hover:bg-green-700">Add
-                    to Cart</button>
-                <a href="item-details.html"
-                    class="px-3 py-1.5 rounded text-sm font-medium bg-gray-50 text-gray-700 border hover:bg-gray-100 hover:border-gray-300">View</a>
-            </div>
-        </div>
-    
-        <div class="bg-white shadow rounded-lg p-4 flex-shrink-0 w-64 snap-start flex flex-col justify-between">
-            <div>
-                <img src="product3.jpg" alt="Product 3" class="w-full h-40 object-cover rounded">
-                <h3 class="mt-2 font-semibold text-gray-700">Wooden Utensil Set</h3>
-                <p class="text-green-600 font-bold">PHP 250</p>
-                <div class="flex items-center text-sm text-gray-600 mt-1">
-                    <span class="text-yellow-400 mr-1">★★★★☆</span>
-                    <span>(3.8)</span>
-                </div>
-                <div class="mt-1 text-xs px-2 py-0.5 inline-block bg-gray-100 text-gray-600 rounded">
-                    Seller: <span class="font-medium text-gray-700">Seller 3</span>
-                </div>
-            </div>
-            <div class="mt-4 flex space-x-2">
-                <button
-                    class="flex-grow bg-green-600 text-white px-3 py-1.5 rounded text-sm font-medium hover:bg-green-700">Add
-                    to Cart</button>
-                <a href="item-details.html"
-                    class="px-3 py-1.5 rounded text-sm font-medium bg-gray-50 text-gray-700 border hover:bg-gray-100 hover:border-gray-300">View</a>
-            </div>
-        </div>
-    
-    </div>
-    
-    <h2 class="text-xl font-bold text-gray-800 mb-2 px-6">Kitchen Wares</h2>
-    
-    <div class="flex overflow-x-auto gap-5 pb-4 snap-x px-6">
-    
-        <div class="bg-white shadow rounded-lg p-4 flex-shrink-0 w-64 snap-start flex flex-col justify-between">
-            <div>
-                <img src="product1.jpg" alt="Product 1" class="w-full h-40 object-cover rounded">
-                <h3 class="mt-2 font-semibold text-gray-700">Bamboo Cutting Board</h3>
-                <p class="text-green-600 font-bold">PHP 150</p>
-                <div class="flex items-center text-sm text-gray-600 mt-1">
-                    <span class="text-yellow-400 mr-1">★★★☆</span>
-                    <span>(4.1)</span>
-                </div>
-                <div class="mt-1 text-xs px-2 py-0.5 inline-block bg-gray-100 text-gray-600 rounded">
-                    Seller: <span class="font-medium text-gray-700">Seller 1</span>
-                </div>
-            </div>
-            <div class="mt-4 flex space-x-2">
-                <button
-                    class="flex-grow bg-green-600 text-white px-3 py-1.5 rounded text-sm font-medium hover:bg-green-700">Add
-                    to Cart</button>
-                <a href="item-details.html"
-                    class="px-3 py-1.5 rounded text-sm font-medium bg-gray-50 text-gray-700 border hover:bg-gray-100 hover:border-gray-300">View</a>
-            </div>
-        </div>
-    
-        <div class="bg-white shadow rounded-lg p-4 flex-shrink-0 w-64 snap-start flex flex-col justify-between">
-            <div>
-                <img src="product2.jpg" alt="Product 2" class="w-full h-40 object-cover rounded">
-                <h3 class="mt-2 font-semibold text-gray-700 truncate">Metal Straw Set</h3>
-                <p class="text-green-600 font-bold">PHP 75</p>
-                <div class="flex items-center text-sm text-gray-600 mt-1">
-                    <span class="text-yellow-400 mr-1">****</span>
-                    <span>(5.0)</span>
-                </div>
-                <div class="mt-1 text-xs px-2 py-0.5 inline-block bg-gray-100 text-gray-600 rounded">
-                    Seller: <span class="font-medium text-gray-700">Seller 2</span>
-                </div>
-            </div>
-            <div class="mt-4 flex space-x-2">
-                <button
-                    class="flex-grow bg-green-600 text-white px-3 py-1.5 rounded text-sm font-medium hover:bg-green-700">Add
-                    to Cart</button>
-                <a href="item-details.html"
-                    class="px-3 py-1.5 rounded text-sm font-medium bg-gray-50 text-gray-700 border hover:bg-gray-100 hover:border-gray-300">View</a>
-            </div>
-        </div>
-    
-        <div class="bg-white shadow rounded-lg p-4 flex-shrink-0 w-64 snap-start flex flex-col justify-between">
-            <div>
-                <img src="product3.jpg" alt="Product 3" class="w-full h-40 object-cover rounded">
-                <h3 class="mt-2 font-semibold text-gray-700">Glass Jars with Wooden Lid</h3>
-                <p class="text-green-600 font-bold">PHP 180</p>
-                <div class="flex items-center text-sm text-gray-600 mt-1">
-                    <span class="text-yellow-400 mr-1">★★★★☆</span>
-                    <span>(3.8)</span>
-                </div>
-                <div class="mt-1 text-xs px-2 py-0.5 inline-block bg-gray-100 text-gray-600 rounded">
-                    Seller: <span class="font-medium text-gray-700">Seller 3</span>
-                </div>
-            </div>
-            <div class="mt-4 flex space-x-2">
-                <button
-                    class="flex-grow bg-green-600 text-white px-3 py-1.5 rounded text-sm font-medium hover:bg-green-700">Add
-                    to Cart</button>
-                <a href="item-details.html"
-                    class="px-3 py-1.5 rounded text-sm font-medium bg-gray-50 text-gray-700 border hover:bg-gray-100 hover:border-gray-300">View</a>
-            </div>
-        </div>
-    
-    </div>
+        <section class="col-span-3 ">
+            <div class="mb-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-2 mt-6 px-6">Recommended</h2>
 
-  </div>
-</section>
+                <div class="flex overflow-x-auto gap-5 pb-4 snap-x mb-8 px-6">
 
-  <!-- <aside class="col-span-1 bg-white shadow rounded-lg p-4">
+                    <div
+                        class="bg-white shadow rounded-lg p-4 flex-shrink-0 w-64 snap-start flex flex-col justify-between">
+                        <div>
+                            <img src="product1.jpg" alt="Product 1" class="w-full h-40 object-cover rounded">
+                            <h3 class="mt-2 font-semibold text-gray-700">Handwoven Basket</h3>
+                            <p class="text-green-600 font-bold">PHP 50</p>
+                            <div class="flex items-center text-sm text-gray-600 mt-1">
+                                <span class="text-yellow-400 mr-1">★★★★☆</span>
+                                <span>(4.1)</span>
+                            </div>
+                            <div class="mt-1 text-xs px-2 py-0.5 inline-block bg-gray-100 text-gray-600 rounded">
+                                Seller: <span class="font-medium text-gray-700">Seller 1</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex space-x-2">
+                            <button
+                                class="flex-grow bg-green-600 text-white px-3 py-1.5 rounded text-sm font-medium hover:bg-green-700">Add
+                                to Cart</button>
+                            <a href="item-details.html"
+                                class="px-3 py-1.5 rounded text-sm font-medium bg-gray-50 text-gray-700 border hover:bg-gray-100 hover:border-gray-300">View</a>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white shadow rounded-lg p-4 flex-shrink-0 w-64 snap-start flex flex-col justify-between">
+                        <div>
+                            <img src="product2.jpg" alt="Product 2" class="w-full h-40 object-cover rounded">
+                            <h3 class="mt-2 font-semibold text-gray-700 truncate">Paperbag Pack 120pcs</h3>
+                            <p class="text-green-600 font-bold">PHP 120</p>
+                            <div class="flex items-center text-sm text-gray-600 mt-1">
+                                <span class="text-yellow-400 mr-1">★★★★★</span>
+                                <span>(5.0)</span>
+                            </div>
+                            <div class="mt-1 text-xs px-2 py-0.5 inline-block bg-gray-100 text-gray-600 rounded">
+                                Seller: <span class="font-medium text-gray-700">Seller 2</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex space-x-2">
+                            <button
+                                class="flex-grow bg-green-600 text-white px-3 py-1.5 rounded text-sm font-medium hover:bg-green-700">Add
+                                to Cart</button>
+                            <a href="item-details.html"
+                                class="px-3 py-1.5 rounded text-sm font-medium bg-gray-50 text-gray-700 border hover:bg-gray-100 hover:border-gray-300">View</a>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white shadow rounded-lg p-4 flex-shrink-0 w-64 snap-start flex flex-col justify-between">
+                        <div>
+                            <img src="product3.jpg" alt="Product 3" class="w-full h-40 object-cover rounded">
+                            <h3 class="mt-2 font-semibold text-gray-700">Wooden Utensil Set</h3>
+                            <p class="text-green-600 font-bold">PHP 250</p>
+                            <div class="flex items-center text-sm text-gray-600 mt-1">
+                                <span class="text-yellow-400 mr-1">★★★★☆</span>
+                                <span>(3.8)</span>
+                            </div>
+                            <div class="mt-1 text-xs px-2 py-0.5 inline-block bg-gray-100 text-gray-600 rounded">
+                                Seller: <span class="font-medium text-gray-700">Seller 3</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex space-x-2">
+                            <button
+                                class="flex-grow bg-green-600 text-white px-3 py-1.5 rounded text-sm font-medium hover:bg-green-700">Add
+                                to Cart</button>
+                            <a href="item-details.html"
+                                class="px-3 py-1.5 rounded text-sm font-medium bg-gray-50 text-gray-700 border hover:bg-gray-100 hover:border-gray-300">View</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <h2 class="text-xl font-bold text-gray-800 mb-2 px-6">Kitchen Wares</h2>
+
+                <div class="flex overflow-x-auto gap-5 pb-4 snap-x px-6">
+
+                    <div
+                        class="bg-white shadow rounded-lg p-4 flex-shrink-0 w-64 snap-start flex flex-col justify-between">
+                        <div>
+                            <img src="product1.jpg" alt="Product 1" class="w-full h-40 object-cover rounded">
+                            <h3 class="mt-2 font-semibold text-gray-700">Bamboo Cutting Board</h3>
+                            <p class="text-green-600 font-bold">PHP 150</p>
+                            <div class="flex items-center text-sm text-gray-600 mt-1">
+                                <span class="text-yellow-400 mr-1">★★★☆</span>
+                                <span>(4.1)</span>
+                            </div>
+                            <div class="mt-1 text-xs px-2 py-0.5 inline-block bg-gray-100 text-gray-600 rounded">
+                                Seller: <span class="font-medium text-gray-700">Seller 1</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex space-x-2">
+                            <button
+                                class="flex-grow bg-green-600 text-white px-3 py-1.5 rounded text-sm font-medium hover:bg-green-700">Add
+                                to Cart</button>
+                            <a href="item-details.html"
+                                class="px-3 py-1.5 rounded text-sm font-medium bg-gray-50 text-gray-700 border hover:bg-gray-100 hover:border-gray-300">View</a>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white shadow rounded-lg p-4 flex-shrink-0 w-64 snap-start flex flex-col justify-between">
+                        <div>
+                            <img src="product2.jpg" alt="Product 2" class="w-full h-40 object-cover rounded">
+                            <h3 class="mt-2 font-semibold text-gray-700 truncate">Metal Straw Set</h3>
+                            <p class="text-green-600 font-bold">PHP 75</p>
+                            <div class="flex items-center text-sm text-gray-600 mt-1">
+                                <span class="text-yellow-400 mr-1">****</span>
+                                <span>(5.0)</span>
+                            </div>
+                            <div class="mt-1 text-xs px-2 py-0.5 inline-block bg-gray-100 text-gray-600 rounded">
+                                Seller: <span class="font-medium text-gray-700">Seller 2</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex space-x-2">
+                            <button
+                                class="flex-grow bg-green-600 text-white px-3 py-1.5 rounded text-sm font-medium hover:bg-green-700">Add
+                                to Cart</button>
+                            <a href="item-details.html"
+                                class="px-3 py-1.5 rounded text-sm font-medium bg-gray-50 text-gray-700 border hover:bg-gray-100 hover:border-gray-300">View</a>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white shadow rounded-lg p-4 flex-shrink-0 w-64 snap-start flex flex-col justify-between">
+                        <div>
+                            <img src="product3.jpg" alt="Product 3" class="w-full h-40 object-cover rounded">
+                            <h3 class="mt-2 font-semibold text-gray-700">Glass Jars with Wooden Lid</h3>
+                            <p class="text-green-600 font-bold">PHP 180</p>
+                            <div class="flex items-center text-sm text-gray-600 mt-1">
+                                <span class="text-yellow-400 mr-1">★★★★☆</span>
+                                <span>(3.8)</span>
+                            </div>
+                            <div class="mt-1 text-xs px-2 py-0.5 inline-block bg-gray-100 text-gray-600 rounded">
+                                Seller: <span class="font-medium text-gray-700">Seller 3</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex space-x-2">
+                            <button
+                                class="flex-grow bg-green-600 text-white px-3 py-1.5 rounded text-sm font-medium hover:bg-green-700">Add
+                                to Cart</button>
+                            <a href="item-details.html"
+                                class="px-3 py-1.5 rounded text-sm font-medium bg-gray-50 text-gray-700 border hover:bg-gray-100 hover:border-gray-300">View</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- <aside class="col-span-1 bg-white shadow rounded-lg p-4">
     <h2 class="text-lg font-semibold mb-4">Filters</h2>
     <label class="block mb-2 text-gray-700">Price Range</label>
     <input type="range" min="0" max="500" class="w-full">
@@ -217,11 +234,11 @@
       <option>Brand C</option>
     </select>
   </aside> -->
-</main>
+    </main>
 
-<footer class="bg-gray-800 text-white text-center py-4">
-  <p>EcoShop, an OM-BSIT Project</p>
-</footer>
+    <footer class="bg-gray-800 text-white text-center py-4">
+        <p>EcoShop, an OM-BSIT Project</p>
+    </footer>
 
     <script src="JS/script.js"></script>
     <script src="JS/products.js"></script>
