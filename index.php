@@ -1,3 +1,15 @@
+<?php
+session_start();
+include 'PHP/database.php';
+
+$isLoggedIn = isset($_SESSION['user_id']);
+$firstName = $isLoggedIn ? $_SESSION['first_name'] : 'Guest';
+
+$stmt = $conn->prepare("SELECT * FROM products");
+$stmt->execute();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +26,10 @@
 
 <body class="min-h-screen flex flex-col lcss-lexend">
 
-    <div class="flex itmes-center justify-center">
-        <img src="PICTURES/EcoShop_Logo_V2-2.svg" alt="">
+    <div class="flex items-center justify-center">
+        <img src="PICTURES/EcoShop_Logo_V2-2.svg" alt="EcoShop Logo" class="w-12 h-auto">
     </div>
-
+    
     <header class=" bg-green-800  shadow-md">
         <nav class="flex items-center justify-between px-6 py-4">
 
@@ -37,19 +49,28 @@
                 <li><a href="help.html" class="hover:text-green-600">Help</a></li>
             </ul>
 
-            <a href="account.html" class="flex items-center hidden space-x-2" id="session-status-loggedin">
-                <img src="PICTURES/default-profile.svg" alt="Profile Picture" class="w-10 h-10 rounded-full border">
-                <span class="font-semibold text-white">Placeholder Name</span>
-            </a>
+            <div class="flex items-center space-x-4">
 
-            <div class="session-status-default">
-                <a href="USER-AUTH/login.html"
-                    class="px-5 py-3 font-semibold text-green-600 bg-white border-2 border-green-600 rounded-lg hover:bg-green-50 transition-colors">Log
-                    in</a>
-                <a href="USER-AUTH/signup.html"
-                    class="px-5 py-3 font-semibold text-white bg-green-600 border-2 border-green-600 rounded-lg hover:bg-green-700 transition-colors">Sign
-                    up</a>
+
+            <?php if ($isLoggedIn): ?>
+                <a href="account.php" class="flex items-center space-x-2" id="session-status-loggedin">
+                    <img src="PICTURES/default-profile.svg" alt="Profile Picture" class="w-10 h-10 rounded-full border">
+                    <span class="font-semibold text-white"><?php echo htmlspecialchars($firstName); ?></span>
+                </a>
+            <?php else: ?>
+                <div class="flex space-x-2 session-status-default">
+                    <a href="USER-AUTH/login.php"
+                        class="px-5 py-3 font-semibold text-green-600 bg-white border-2 border-green-600 rounded-lg hover:bg-green-50 transition-colors">
+                        Log in
+                    </a>
+                    <a href="USER-AUTH/signup.php"
+                        class="px-5 py-3 font-semibold text-white bg-green-600 border-2 border-green-600 rounded-lg hover:bg-green-700 transition-colors">
+                        Sign up
+                    </a>
+                </div>
+            <?php endif; ?>
             </div>
+
 
         </nav>
     </header>
