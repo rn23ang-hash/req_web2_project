@@ -77,16 +77,6 @@ $stmt->execute();
 
     <main class="grid grid-cols-4 gap-6 p-6 bg-gray-50 grow">
 
-        <!-- <aside class="col-span-1 bg-white shadow rounded-lg p-4">
-    <h2 class="text-lg font-semibold mb-4">Categories</h2>
-    <ul class="space-y-2 text-gray-700">
-      <li><a href="#" class="hover:text-green-600">Electronics</a></li>
-      <li><a href="#" class="hover:text-green-600">Fashion</a></li>
-      <li><a href="#" class="hover:text-green-600">Home & Living</a></li>
-      <li><a href="#" class="hover:text-green-600">Sports</a></li>
-      <li><a href="#" class="hover:text-green-600">Books</a></li>
-    </ul>
-  </aside> -->
 
         <section class="col-span-3 ">
             <div class="mb-6">
