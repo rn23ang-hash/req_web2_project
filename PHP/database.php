@@ -2,7 +2,7 @@
 
 $servername = "";
 $username = "";
-$password = ""; 
+$password = "root"; 
 $dbname = "";
 
 try {
@@ -17,3 +17,4 @@ try {
   echo "Connection failed: " . $e->getMessage();
   
 }
+

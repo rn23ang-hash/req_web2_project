@@ -24,7 +24,7 @@
 
     <main class="lcss-auth-main lcss-gen-flexcolumn lcss-gen-flex-center debug-border bg-white p-8 rounded-2xl shadow-sm border border-gray-100 w-full max-w-md">
 
-    <form action="" class="lcss-gen-form-container lcss-gen-flex-center">
+    <form action="../PHP/signup-script.php" class="lcss-gen-form-container lcss-gen-flex-center">
         <div class="localfunc-signup-page lcss-form-div lcss-gen-flexcolumn">
         
             <div class="form-action">
@@ -99,6 +99,7 @@
         <div class="lcss-signup-button-container">
             <button class="lcss-gen-form-button">CONFIRM</button>
         </div>
+        
         </form>
     </main>
 
