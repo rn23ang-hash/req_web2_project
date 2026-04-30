@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    include '../PHP/database.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,7 +56,6 @@
                 Create an acocunt instead
             </a>
 
-            <input type="submit" value="Submit">
 
         </form>
             
@@ -59,6 +64,6 @@
     </main>
 
 
-    <script src="../JS/script.js"></script>
+    <script src="../JS/script.js" defer></script>
 </body>
 </html>

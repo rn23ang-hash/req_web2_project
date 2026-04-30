@@ -1,132 +1,80 @@
-// Redirect functions
+//login input
 
-console.log("Script loaded successfully");
+const loginForm = document.getElementById('login-form');
+const loginConfirm = document.getElementById('confirm-login');
 
-const demonstrationMode = 'full-features';
-
-console.log("Production mode is: " + demonstrationMode);
-console.log("Hello");
-
-//in index.html
-const indexLogin = document.getElementById("login-button-index");
-const indexSignup = document.getElementById("signup-button-index");
-const redirectIndex = document.getElementById("return-main-page");
-
-//in login.html
-// const loginRedirectSignup = document.getElementById("redirect-to-signup");
-
-const signUpInstead = document.getElementById("redirect-to-signup");
-const loginInstead = document.getElementById("redirect-to-login");
-const confirmLogin = document.getElementById("confirm-login");
-const loginForm = document.getElementById("login-form");
+let loginEmail = document.getElementById("username-login");
+let loginPassword = document.getElementById("password-login");
 
 
-//in signup.php/html
+function loginValidate(e) {
 
-const confirmSignup = document.getElementById("confirm-signup");
-const signupForm = document.getElementById("signup-form");
+    e.preventDefault();
 
+    const emailValue = loginEmail.value.trim();
+    const passwordValue = loginPassword.value.trim();
 
-console.log(typeof loginUsername);
-console.log(typeof loginPassword);
+    console.log("This function was clicked");
+    console.log(emailValue);
+    console.log(passwordValue);
 
-switch (demonstrationMode) {
-    case 'frontend-only':
+    if (emailValue === "" || passwordValue === "") {
+        alert("Fields cannot be left empty");
+        return;
+    }
 
-        function redirectSignUp() {
-            window.location.href = "signup.php";
-             console.log("This button was pressed");
-        }
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        function redirectLogin() {
-            window.location.href = "login.php";
-             console.log("This button was pressed");
-        }
-
-        function redirectToIndex() {
-            window.location.href = "index.php";
-            console.log("This button was pressed");
-        }
-
-        function proceedLogin() {
-            const loginUsername = document.getElementById("username-login").value;
-            const loginPassword = document.getElementById("password-login").value;
-
-            if (loginUsername === "" || loginPassword === "") {
-                alert("For demonstration purposes, username and password fields cannot be empty. Any entry will do.");
-                return;
-            } else {
-                window.location.href = "products.html";
-            }
-        }
-
-        indexLogin.addEventListener("click", redirectLogin);
-        indexSignup.addEventListener("click", redirectSignUp);
-        redirectIndex.addEventListener("click", redirectToIndex);
-        signUpInstead.addEventListener("click", redirectSignUp);
-        confirmLogin.addEventListener("click", proceedLogin);
-
-        // signUpInstead.addEventListener("click", function(e) {
-        //     console.log("This button was pressed");
-        //     window.location.href = "/signup.html";
-        // });
-
-        break;
-
-    case 'full-features':
-        //Includes proper credential and interactive functionality
+    // 3. Test the emailValue against the pattern
+    if (!emailPattern.test(emailValue)) {
+        alert("Please enter a valid email address (e.g., name@example.com)");
+        return;
+    } else {
+        loginForm.submit();
+    }
 
 
-        function redirectSignUp() {
-            window.location.href = "signup.php";
-             console.log("This button was pressed");
-        }
-
-        function redirectLogin() {
-            window.location.href = "login.php";
-             console.log("This button was pressed");
-        }
-
-        function redirectToIndex() {
-            window.location.href = "index.php";
-            console.log("This button was pressed");
-        }
-
-        function proceedLogin(event) {
-
-            event.preventDefault;
-
-            const loginUsername = document.getElementById("username-login").value;
-            const loginPassword = document.getElementById("password-login").value;
-
-            if (loginUsername === "" || loginPassword === "") {
-                alert("");
-                return;
-            } else {
-                window.location.href = "index.php";
-            }
-        }
-
-        function proceedSignup(event) {
-
-            event.preventDefault;
-
-            const 
-        }
-
-        indexLogin.addEventListener("click", redirectLogin);
-        indexSignup.addEventListener("click", redirectSignUp);
-        redirectIndex.addEventListener("click", redirectToIndex);
-        signUpInstead.addEventListener("click", redirectSignUp);
-        confirmLogin.addEventListener("click", proceedLogin);
-        confirmSignup.addEventListener("click", proceedLogin);
-
-
-
-        break;
-
-    default:
-
-        break;
 }
 
+loginConfirm.addEventListener("click", loginValidate);
+
+//initial signup input
+
+const signupForm = document.getElementById('signup-form');
+const signupConfirm = document.getElementById('confirm-signup');
+
+let signupEmail = document.getElementById('email-signup');
+let signupPassword = document.getElementById('password-signup');
+let signupConfirmPassword = document.getElementById('confirm-password-signup');
+let signupFirstName = document.getElementById('firstname-signup');
+let signupLastName = document.getElementById('lastname-signup');
+let signupDobMonth = document.getElementById('dob-month-signup');
+let signupDobDay = document.getElementById('dob-day-signup');
+let signupDobYear = document.getElementById('dob-year-signup');
+
+function signupValidate(e) {
+
+    e.preventDefault();
+
+    const emailValue = signupEmail.value.trim();
+    const passwordValue = signupPassword.value.trim();
+    const confPassValue = signupConfirmPassword.value.trim();
+    const firstNameValue = signupFirstName.value.trim();
+    const lastNameValue = signupLastName.value.trim();
+    const monthValue = signupDobMonth.value.trim();
+    const dayValue = signupDobDay.value.trim();
+    const YearValue = signupDobYear.value.trim();
+
+    //month array set
+
+    const monthSetA = ['jan', 'mar', 'may', 'jul', 'aug', 'oct', 'dec'];
+    const monthSetB = ['apr', 'jun', 'sep', 'nov'];
+    const monthSetC = ['feb']
+
+    if (monthValue === 'jan') {
+        
+    }
+
+}
+
+signupConfirm.addEventListener("click", signupValidate);

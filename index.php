@@ -78,7 +78,7 @@ $stmt->execute();
     <main class="grid grid-cols-4 gap-6 p-6 bg-gray-50 grow">
 
 
-        <section class="col-span-3 ">
+        <section class="col-span-5 ">
             <div class="mb-6">
                 <h2 class="text-xl font-bold text-gray-800 mb-2 mt-6 px-6">Recommended</h2>
 
