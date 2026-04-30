@@ -14,18 +14,36 @@ function loginValidate(e) {
 
     e.preventDefault();
 
+
     const emailValue = loginEmail.value.trim();
     const passwordValue = loginPassword.value.trim();
 
-    console.log("This function was clicked");
-    console.log(emailValue);
-    console.log(passwordValue);
+    loginForm.addEventListener('input', (e) => {
+
+    const field = e.target;
+    
+    field.classList.remove('border-red-500', 'bg-red-50');
+    
+    });
+
+    const hasEmptyFields = [emailValue, passwordValue].some(v => v === "");
+
+    if (hasEmptyFields) {
+
+        const inputs = [loginEmail, loginPassword];
+        inputs.forEach(input => {
+            if (input.value.trim() === "") {
+                input.classList.add('border-red-500', 'bg-red-50');
+            }
+        });
+        alert("Please fill in all fields.");
+        return;
+    }
 
     if (emailValue === "" || passwordValue === "") {
         alert("Fields cannot be left empty");
         return;
     }
-
 
     // 3. Test the emailValue against the pattern
     if (!emailPattern.test(emailValue)) {
@@ -34,7 +52,6 @@ function loginValidate(e) {
     } else {
         loginForm.submit();
     }
-
 
 }
 
@@ -63,33 +80,51 @@ function signupValidate(e) {
 
     e.preventDefault();
 
-    console.log("The function is triggered.");
-
     const emailValue = signupEmail.value.trim();
     const passwordValue = signupPassword.value.trim();
     const confPassValue = signupConfirmPassword.value.trim();
     const firstNameValue = signupFirstName.value.trim();
     const lastNameValue = signupLastName.value.trim();
-    const dobValue = new Date(signupDob.value);
+    const dobValue = signupDob.value;
+    const today = new Date();
+    const birthDate = new Date(dobValue);
+
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+
+    signupForm.addEventListener('input', (e) => {
+
+    const field = e.target;
+    
+    field.classList.remove('border-red-500', 'bg-red-50');
+    
+    });
 
 
-    let signupArray = [emailValue, passwordValue, confPassValue, firstNameValue, lastNameValue, dobValue];
+    const hasEmptyFields = [emailValue, passwordValue, confPassValue, firstNameValue, lastNameValue].some(v => v === "");
 
-    const hasEmptyFields = signupArray.some(value => value === "");
+if (hasEmptyFields) {
+    // If you want to highlight EVERY empty field at once:
+    const inputs = [signupEmail, signupPassword, signupConfirmPassword, signupFirstName, signupLastName];
+    inputs.forEach(input => {
+        if (input.value.trim() === "") {
+            input.classList.add('border-red-500', 'bg-red-50');
+        }
+    });
+    alert("Please fill in all fields.");
+    return;
+}
 
      if (!emailPattern.test(emailValue)) {
             console.log("Invalid email format");
-            signupEmail.classList.add(('border-red-500', 'bg-red-50'));
+            signupEmail.classList.add('border-red-500', 'bg-red-50');
             alert("Please enter a valid email address (e.g., name@example.com)");
             return;
     }
-
-    if (hasEmptyFields) {
-        console.log("Empty fields found!");
-        signupEmail.classList.add('border-red-500', 'bg-red-50');
-        alert("Please fill in all fields.");
-        return;
-    } 
     
     if (emailValue === "") {
         signupEmail.classList.add('border-red-500', 'bg-red-50');
@@ -110,6 +145,14 @@ function signupValidate(e) {
     }
 
 
+    if (age < 18) {
+        console.log("User is underage");
+        signupDob.classList.add('border-red-500', 'bg-red-50');
+        alert("You must be at least 18 years old to sign up");
+        return;
+    }
+
+    signupForm.submit();
 
 }
 

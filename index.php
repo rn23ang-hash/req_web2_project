@@ -27,19 +27,20 @@ $stmt->execute();
 <body class="min-h-screen flex flex-col lcss-lexend">
 
     <div class="flex items-center justify-center">
-        <img src="PICTURES/EcoShop_Logo_V2-2.svg" alt="EcoShop Logo" class="w-12 h-auto">
+        <img src="PICTURES/EcoShop_Logo_V2-2.svg" alt="EcoShop Logo" class="w-20 h-auto m-3">
     </div>
     
     <header class=" bg-green-800  shadow-md">
         <nav class="flex items-center justify-between px-6 py-4">
 
             <div class="relative">
-                <input type="text" placeholder="Search products..."
+                <form action="/PHP/search-script.php" type="submit">
+                    <input type="text" placeholder="Search products..."
                     class="border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
-                <button class="absolute right-2 top-2 text-gray-500 hover:text-green-600">Go</button>
+                    <button class="absolute right-2 top-2 text-gray-500 hover:text-green-600">Go</button>
+                </form>
+                
             </div>
-
-
 
             <ul class="flex space-x-6 text-white font-medium">
                 <li><a href="account.html" class="hover:text-green-600">Account</a></li>

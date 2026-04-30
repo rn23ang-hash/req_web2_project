@@ -32,10 +32,10 @@
             <h2 class="text-2xl font-bold mb-6">Login</h2>
 
             <label for="username-login" class="mb-1">Username or Email</label>
-            <input id="username-login" placeholder="Enter your username or email" type="email" class="border p-2 rounded mb-4 focus:outline-green-600">
+            <input id="username-login" name="user_email" placeholder="Enter your username or email" type="email" class="border p-2 rounded mb-4 focus:outline-green-600">
             
             <label for="password-login" class="mb-1">Password</label>
-            <input id="password-login" placeholder="Enter your password" type="password" class="border p-2 rounded mb-2 focus:outline-green-600">
+            <input id="password-login" name="user_password" placeholder="Enter your password" type="password" class="border p-2 rounded mb-2 focus:outline-green-600">
             
             <a href="password-help.html" class="text-sm text-green-600 hover:underline mb-4">Forgot Password?</a>
 
@@ -48,11 +48,8 @@
             </button>
             
             <label for="redirect-to-signup" class="mb-2">Don't have an account?</label>
-            <!-- <button id="redirect-to-signup" onclick="redirectSignUp()" class="py-2 font-bold hover:underline hover:text-green-500">
-                Sign up instead
-            </button> -->
 
-            <a id="redirect-to-signup" href="signup.php" class="py-2 font-bold text-center hover:underline hover:text-green-500">
+            <a id="redirect-to-signup" href="signup.php" class="py-2  font-bold text-center hover:underline hover:text-green-500 hover:border-solid hover:border-green-500">
                 Create an acocunt instead
             </a>
 
