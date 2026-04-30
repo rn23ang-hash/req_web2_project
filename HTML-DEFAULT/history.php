@@ -47,11 +47,11 @@
 
     <nav class="bg-green-700 shadow-lg sticky top-0 z-10">
         <ul class="max-w-5xl mx-auto flex space-x-8 text-green-50 font-medium p-4">
+            <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-white">
+                <a href="account.php">Account Info</a>
+            </li>
             <li class="hover:text-white cursor-pointer transition-colors">
                 <a href="cart.php">Cart</a>
-            </li>
-            <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent">
-               <a href="history.php">History </a>
             </li>
             <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent">
                 <a href="incoming.php">Incoming</a>
@@ -70,75 +70,25 @@
 
     <main class="max-w-5xl mx-auto p-4 md:p-8 space-y-12">
 
-        <section id="user-geninfo-account" class="">
-            <h1 class="font-bold text-3x1 mb-2">General Information</h1>
-            <div>
-                <div class="mb-1">
-                    <h3>Email</h3>
-                        <span>
-                            <?php 
-                                echo htmlspecialchars($email);
-                            ?>
-                        </span>
-                        <div>
-                            <form action="../PHP/change-script.php"></form>
-                            <h2>Email</h2>
-                            <label for="change-email-field">Change Email</label>
-                            <input type="email">
-                            <div>
-                                <input value="Confirm" type="submit">
-                                <button id="cancel-email-change">Cancel</button>
-                            </div>
-                        </div>
-                         <button class="bg-green-600 text-white font-bold p-2 rounded">Change email address</button>
-                </div>
-                <div class="mb-1">
-                    <h3>Name</h3>
-                        <p>
-                            <?php 
 
-                            ?>
-                        </p>
-                </div>
-                <div class="mb-1">
-                    <h3>Addresses</h3>
-                        <div>
-                            <button id="add-address">Add Address</button>
-                        </div>
-                        <div>
-                            <form action="" method="post" class="flex flex-col">
-                                <label for="address-country">Country</label>
-                                <input id="address-country" value="Philippines" type="text" class="border p-2 rounded mb-2 focus:outline-green-600">
-                                
-                                <label for="address-province">Province</label>
-                                <input id="address-province" type="text" class="border p-2 rounded mb-2 focus:outline-green-600">
-
-                                <label for="address-municipality">Municipality</label>
-                                <input id="address-municipality" type="text" class="border p-2 rounded mb-2 focus:outline-green-600">
-
-                                <label for="address-barangay">Barangay</label>
-                                <input id="address-barangay" type="text" class="border p-2 rounded mb-2 focus:outline-green-600">
-
-                                <label for="address-street">Street</label>
-                                <input id="address-street" type="text" class="border p-2 rounded mb-2 focus:outline-green-600">
-
-                                <input value="Confirm" type="submit">
-                            </form>
-                            
-                        </div>
-                        <div>
-                            <ol>
-                                <li></li>
-                            </ol>
-                        </div>
-                </div>
-                
-                
+        <section id="account-history" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+            <div class="mb-6">
+                <h2 class="text-xl font-bold text-gray-900">History</h2>
+                <p class="text-sm text-gray-500 italic">Sorted by most recent activity</p>
             </div>
-
-
+            
+            <div class="overflow-hidden rounded-xl border border-gray-100">
+                <div class="bg-gray-50 p-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm border-b">
+                    <div><p class="text-gray-400 uppercase text-xs font-bold">Date</p><span id="item-order-date">Jan 1, 2026</span></div>
+                    <div><p class="text-gray-400 uppercase text-xs font-bold">Item</p><span id="item-name" class="font-medium text-green-700">Broom Set</span></div>
+                    <div><p class="text-gray-400 uppercase text-xs font-bold">Qty</p><span id="item-quantity">1</span></div>
+                    <div><p class="text-gray-400 uppercase text-xs font-bold">Total</p><span id="item-price" class="font-bold">₱100.00</span></div>
+                </div>
+                <div class="p-4 text-sm text-gray-600 bg-white">
+                    Seller: <span id="seller-name" class="text-green-600 font-medium">EcoSeller</span>
+                </div>
+            </div>
         </section>
-
         
     </main>
 
