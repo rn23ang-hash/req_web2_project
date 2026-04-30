@@ -6,6 +6,9 @@ const loginConfirm = document.getElementById('confirm-login');
 let loginEmail = document.getElementById("username-login");
 let loginPassword = document.getElementById("password-login");
 
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (loginForm) {
 
 function loginValidate(e) {
 
@@ -23,7 +26,6 @@ function loginValidate(e) {
         return;
     }
 
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     // 3. Test the emailValue against the pattern
     if (!emailPattern.test(emailValue)) {
@@ -36,9 +38,12 @@ function loginValidate(e) {
 
 }
 
-loginConfirm.addEventListener("click", loginValidate);
+loginForm.addEventListener("submit", loginValidate);
+
+}
 
 //initial signup input
+
 
 const signupForm = document.getElementById('signup-form');
 const signupConfirm = document.getElementById('confirm-signup');
@@ -48,33 +53,66 @@ let signupPassword = document.getElementById('password-signup');
 let signupConfirmPassword = document.getElementById('confirm-password-signup');
 let signupFirstName = document.getElementById('firstname-signup');
 let signupLastName = document.getElementById('lastname-signup');
-let signupDobMonth = document.getElementById('dob-month-signup');
-let signupDobDay = document.getElementById('dob-day-signup');
-let signupDobYear = document.getElementById('dob-year-signup');
+let signupDob = document.getElementById('dob-signup');
+
+
+if (signupForm) {
+
 
 function signupValidate(e) {
 
     e.preventDefault();
+
+    console.log("The function is triggered.");
 
     const emailValue = signupEmail.value.trim();
     const passwordValue = signupPassword.value.trim();
     const confPassValue = signupConfirmPassword.value.trim();
     const firstNameValue = signupFirstName.value.trim();
     const lastNameValue = signupLastName.value.trim();
-    const monthValue = signupDobMonth.value.trim();
-    const dayValue = signupDobDay.value.trim();
-    const YearValue = signupDobYear.value.trim();
+    const dobValue = new Date(signupDob.value);
 
-    //month array set
 
-    const monthSetA = ['jan', 'mar', 'may', 'jul', 'aug', 'oct', 'dec'];
-    const monthSetB = ['apr', 'jun', 'sep', 'nov'];
-    const monthSetC = ['feb']
+    let signupArray = [emailValue, passwordValue, confPassValue, firstNameValue, lastNameValue, dobValue];
 
-    if (monthValue === 'jan') {
-        
+    const hasEmptyFields = signupArray.some(value => value === "");
+
+     if (!emailPattern.test(emailValue)) {
+            console.log("Invalid email format");
+            signupEmail.classList.add(('border-red-500', 'bg-red-50'));
+            alert("Please enter a valid email address (e.g., name@example.com)");
+            return;
     }
+
+    if (hasEmptyFields) {
+        console.log("Empty fields found!");
+        signupEmail.classList.add('border-red-500', 'bg-red-50');
+        alert("Please fill in all fields.");
+        return;
+    } 
+    
+    if (emailValue === "") {
+        signupEmail.classList.add('border-red-500', 'bg-red-50');
+        alert("Email is required");
+        return;
+    }
+
+    if (passwordValue.length < 10) {
+        signupPassword.classList.add('border-red-500', 'bg-red-50');
+        alert("Password must be at least 10 characters");
+        return;
+    }
+
+    if (passwordValue !== confPassValue) {
+        signupConfirmPassword.classList.add('border-red-500', 'bg-red-50');
+        alert("Passwords do not match");
+        return;
+    }
+
+
 
 }
 
-signupConfirm.addEventListener("click", signupValidate);
+signupForm.addEventListener("submit", signupValidate);
+
+}
