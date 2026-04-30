@@ -16,7 +16,7 @@
     <header class="bg-white border-b border-green-100 py-6">
        <section class="max-w-5xl mx-auto px-4 flex items-center space-x-6">
             <div class="relative">
-                <img class="h-20 w-20 rounded-full border-4 border-green-500 object-cover shadow-sm" src="PICTURES/default-profile.svg" alt="User profile">
+                <img class="h-20 w-20 rounded-full border-4 border-green-500 object-cover shadow-sm" src="../PICTURES/default-profile.svg" alt="User profile">
                 <!-- <span class="absolute bottom-0 right-0 h-5 w-5 bg-green-500 border-2 border-white rounded-full"></span> -->
             </div>
             <div class="flex flex-col">
@@ -39,7 +39,7 @@
             <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent">Incoming</li>
             <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent">Bookmarks</li>
             <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent">
-                <a href="products.html">Home</a>
+                <a href="../index.php">Home</a>
             </li>
             <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent text-green-300">Settings</li>
         </ul>
