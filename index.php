@@ -2,10 +2,20 @@
 session_start();
 include 'PHP/database.php';
 
-$isLoggedIn = isset($_SESSION['userId']); 
-$firstName = $isLoggedIn ? ($_SESSION['firstName'] ?? 'User') : 'Guest';
+$isLoggedIn = isset($_SESSION['userId']);
+$firstName = 'Guest';
 
-// Fetch products for everyone to see
+if ($isLoggedIn) {
+    // Since login only saved ID/Email, we fetch the name for the welcome message
+    $stmtUser = $conn->prepare("SELECT first_name FROM users WHERE id = :id");
+    $stmtUser->execute(['id' => $_SESSION['userId']]);
+    $userRow = $stmtUser->fetch();
+    if ($userRow) {
+        $firstName = $userRow['first_name'];
+    }
+}
+
+// Fetch products for the shop
 $stmt = $conn->prepare("SELECT * FROM products");
 $stmt->execute();
 ?>
