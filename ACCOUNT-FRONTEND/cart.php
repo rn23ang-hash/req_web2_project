@@ -37,6 +37,7 @@
                 <h1 id="user-fullname" class="text-2xl font-bold text-gray-900">Placeholder Name</h1>
                 <div class="text-sm text-gray-500 space-y-1">
                     <p>ID: <span id="user-email" class="font-medium text-green-700">user@example.com</span></p>
+                    <p>Mobile: <span id="user-mobile">0912-345-6789</span></p>
                     <p>Type: <span class="px-2 py-0.5 bg-green-100 text-green-800 rounded-full text-xs font-semibold">Buyer</span></p>
                 </div>
             </div>
@@ -48,7 +49,10 @@
     <nav class="bg-green-700 shadow-lg sticky top-0 z-10">
         <ul class="max-w-5xl mx-auto flex space-x-8 text-green-50 font-medium p-4">
             <li class="hover:text-white cursor-pointer transition-colors">
-                <a href="cart.php">Cart</a>
+                <a href="account.php">Account Info</a>
+            </li>
+            <li class="border-b-2 border-white hover:text-white cursor-pointer transition-colors">
+                Cart
             </li>
             <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent">
                <a href="history.php">History </a>
@@ -69,18 +73,41 @@
     </nav>
 
     <main class="max-w-5xl mx-auto p-4 md:p-8 space-y-12">
-
-    
-        <section id="account-incoming_items" class="bg-green-50 rounded-2xl p-6 border border-green-100">
-            <h2 class="text-xl font-bold text-green-900 mb-4">Incoming Items</h2>
-            <div class="bg-white p-5 rounded-xl shadow-sm border border-green-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                <div>
-                    <h3 class="font-bold text-lg text-gray-900" id="checkout-item-name-0">Item 0</h3>
-                    <p class="text-sm text-gray-600">Seller: <span class="text-green-600">Seller 0</span> • ₱123.00</p>
-                    <p class="text-sm font-medium text-blue-600 mt-1">Expected Arrival: <span id="arrival-date">March 10, 2026</span></p>
+        
+        <section id="account-cart" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+            <h2 class="text-xl font-bold mb-6 flex items-center">
+                <span class="bg-green-600 w-2 h-6 rounded-full mr-3"></span>
+                Your Cart
+            </h2>
+            
+            <div class="space-y-4">
+                <div class="flex items-center justify-between p-4 rounded-xl border border-gray-100 hover:bg-green-50 transition-colors">
+                    <div class="flex items-center space-x-4">
+                        <input id="checkout-item-1" type="checkbox" checked class="w-5 h-5 rounded text-green-600 focus:ring-green-500">
+                        <div>
+                            <h3 class="font-bold text-gray-800" id="checkout-item-name-1">Item 1</h3>
+                            <p class="text-sm text-gray-500" id="checkout-item-seller">Seller: <span class="text-green-600">Seller 1</span></p>
+                        </div>
+                    </div>
+                    <p class="font-bold text-lg text-gray-900">₱123.00</p>
                 </div>
-                <button class="text-red-500 hover:text-red-700 text-sm font-semibold px-4 py-2 border border-red-100 hover:bg-red-50 rounded-lg transition-colors">
-                    Cancel Order
+
+                <div class="flex items-center justify-between p-4 rounded-xl border border-gray-100 hover:bg-green-50 transition-colors">
+                    <div class="flex items-center space-x-4">
+                        <input id="checkout-item-2" type="checkbox" class="w-5 h-5 rounded text-green-600 focus:ring-green-500">
+                        <div>
+                            <h3 class="font-bold text-gray-800" id="checkout-item-name-2">Item 2</h3>
+                            <p class="text-sm text-gray-500" id="checkout-item-seller">Seller: <span class="text-green-600">Seller 2</span></p>
+                        </div>
+                    </div>
+                    <p class="font-bold text-lg text-gray-900">₱456.00</p>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <h2 class="text-xl font-bold text-gray-900">Total: <span class="text-green-700">₱123.00</span></h2>
+                <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-xl shadow-md transition-all active:scale-95">
+                    <a href="confirmed.html">Check Out Selected</a>
                 </button>
             </div>
         </section>
