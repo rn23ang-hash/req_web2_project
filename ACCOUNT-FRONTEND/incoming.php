@@ -30,7 +30,7 @@
                 </h1>
                 <div class="text-sm text-gray-500 space-y-1">
                     <p>ID: <span id="user-email" class="font-medium text-green-700">user@example.com</span></p>
-                    <p>Type: <span class="px-2 py-0.5 bg-green-100 text-green-800 rounded-full text-xs font-semibold">Buyer</span></p>
+                    
                 </div>
             </div>
         </section>
