@@ -73,12 +73,14 @@ include '../PHP/database.php';
         </ul>
     </nav>
 
+
+
     <main class="max-w-5xl mx-auto p-4 md:p-8 space-y-12">
 
         <section id="user-geninfo-account" class="">
             <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w flex flex-col items-stretch">
 
-                <form action="../PHP/change-script.php" id="update-form" method="post" class="text-left w-full">
+                <div class="text-left w-full">
                     <h2 class="text-2xl font-bold mb-6 text-green-700">Account</h2>
 
                     <!-- EMAIL SECTION -->
@@ -142,10 +144,10 @@ include '../PHP/database.php';
                         <?= htmlspecialchars($user['street'] ?? '') ?>
                     </div>
 
-                    <button id="confirm-update" type="submit" class="w-full bg-green-600 text-white mb-2 mt-4 font-bold py-2 rounded hover:bg-green-700 transition">
+                    <a href="update.php" class="block w-full bg-green-600 text-center text-white mb-2 mt-4 font-bold py-2 rounded hover:bg-green-700 transition">
                         Edit Account Data
-                    </button>
-                </form>
+                    </a>
+                </div>
 
                 <!-- Separated Logout Form -->
                 <form action="logout-script.php" id="logout-form" method="post" class="w-full">
