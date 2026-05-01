@@ -6,7 +6,6 @@ $isLoggedIn = isset($_SESSION['userId']);
 $firstName = 'Guest';
 
 if ($isLoggedIn) {
-    // Since login only saved ID/Email, we fetch the name for the welcome message
     $stmtUser = $conn->prepare("SELECT first_name FROM users WHERE id = :id");
     $stmtUser->execute(['id' => $_SESSION['userId']]);
     $userRow = $stmtUser->fetch();
@@ -15,9 +14,10 @@ if ($isLoggedIn) {
     }
 }
 
-// Fetch products for the shop
-$stmt = $conn->prepare("SELECT * FROM products");
+// FETCH ALL PRODUCTS ONCE (Remove the second $sql block further down)
+$stmt = $conn->prepare("SELECT * FROM products ORDER BY date_added DESC");
 $stmt->execute();
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -80,9 +80,9 @@ $stmt->execute();
 
             <div class="flex items-center space-x-8">
                 <ul class="flex space-x-6 text-white font-medium">
-                    <li><a href="account.html#account-incoming_orders" class="hover:text-green-300 transition">Orders</a></li>
-                    <li><a href="account.html#account-cart" class="hover:text-green-300 transition">Cart</a></li>
-                    <li><a href="account.html#account-history" class="hover:text-green-300 transition">History</a></li>
+                    <li><a href="ACCOUNT-FRONTEND/incoming.php" class="hover:text-green-300 transition">Orders</a></li>
+                    <li><a href="ACCOUNT-FRONTEND/cart.php" class="hover:text-green-300 transition">Cart</a></li>
+                    <li><a href="ACCOUNT-FRONTEND/history.php" class="hover:text-green-300 transition">History</a></li>
                     <li><a href="help.html" class="hover:text-green-300 transition">Help</a></li>
                 </ul>
 
@@ -107,22 +107,18 @@ $stmt->execute();
 
                 <div class="flex overflow-x-auto gap-5 pb-4 snap-x mb-8 px-6">
                     <?php
-                    // 1. Fetch products from the 'products' table
-                    $sql = "SELECT * FROM products ORDER BY date_added DESC";
-                    $stmt = $conn->prepare($sql);
-                    $stmt->execute();
-                    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                    // 2. Check if there are any products to display
                     if ($products):
                         foreach ($products as $row):
                     ?>
-                            <!-- Individual Product Card Loop -->
                             <div class="bg-white shadow rounded-lg p-4 flex-shrink-0 w-64 snap-start flex flex-col justify-between">
                                 <div>
-                                    <!-- Placeholder image - you can replace src with $row['product_image'] if you add that column later -->
-                                    <div class="w-full h-40 bg-gray-200 rounded flex items-center justify-center">
-                                        <span class="text-gray-400 text-xs text-center px-2"><?php echo htmlspecialchars($row['product_name']); ?></span>
+                                    <!-- Updated to show actual product image -->
+                                    <div class="w-full h-40 bg-gray-100 rounded overflow-hidden flex items-center justify-center">
+                                        <?php if (!empty($row['product_image'])): ?>
+                                            <img src="PICTURES/PRODUCT-IMAGES/<?php echo $row['product_image']; ?>" class="w-full h-full object-cover">
+                                        <?php else: ?>
+                                            <span class="text-gray-400 text-xs">No Image</span>
+                                        <?php endif; ?>
                                     </div>
 
                                     <h3 class="mt-2 font-semibold text-gray-700 truncate">
@@ -133,24 +129,25 @@ $stmt->execute();
                                         PHP <?php echo number_format($row['price'], 2); ?>
                                     </p>
 
-                                    <!-- Static Rating for now since it's not in your schema yet -->
                                     <div class="flex items-center text-sm text-gray-600 mt-1">
                                         <span class="text-yellow-400 mr-1">★★★★☆</span>
                                         <span>(4.0)</span>
                                     </div>
-
-                                    <div class="mt-1 text-xs px-2 py-0.5 inline-block bg-gray-100 text-gray-600 rounded">
-                                        Seller ID: <span class="font-medium text-gray-700"><?php echo $row['seller_id']; ?></span>
-                                    </div>
                                 </div>
 
                                 <div class="mt-4 flex space-x-2">
-                                    <button class="flex-grow bg-green-600 text-white px-3 py-1.5 rounded text-sm font-medium hover:bg-green-700">
-                                        Add to Cart
-                                    </button>
-                                    <!-- Linked to a dynamic ID if needed -->
-                                    <a href="item-details.php?id=<?php echo $row['id']; ?>"
-                                        class="px-3 py-1.5 rounded text-sm font-medium bg-gray-50 text-gray-700 border hover:bg-gray-100 hover:border-gray-300">
+                                    <form action="PHP/cart-script.php" method="POST" class="flex-grow">
+                                        <input type="hidden" name="action" value="add">
+                                        <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
+                                        <input type="hidden" name="quantity" value="1">
+
+                                        <button type="submit" class="w-full bg-green-600 text-white px-3 py-1.5 rounded text-sm font-medium hover:bg-green-700 transition">
+                                            Add to Cart
+                                        </button>
+                                    </form>
+
+                                    <a href="product-info.php?id=<?php echo $row['id']; ?>"
+                                        class="px-3 py-1.5 rounded text-sm font-medium bg-gray-50 text-gray-700 border hover:bg-gray-100 transition">
                                         View
                                     </a>
                                 </div>
@@ -159,7 +156,7 @@ $stmt->execute();
                         endforeach;
                     else:
                         ?>
-                        <p class="text-gray-500 italic px-6">No recommended products available right now.</p>
+                        <p class="text-gray-500 italic px-6">No products available.</p>
                     <?php endif; ?>
                 </div>
 
@@ -242,18 +239,6 @@ $stmt->execute();
             </div>
         </section>
 
-        <!-- <aside class="col-span-1 bg-white shadow rounded-lg p-4">
-    <h2 class="text-lg font-semibold mb-4">Filters</h2>
-    <label class="block mb-2 text-gray-700">Price Range</label>
-    <input type="range" min="0" max="500" class="w-full">
-    <label class="block mt-4 mb-2 text-gray-700">Brand</label>
-    <select class="w-full border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-green-500">
-      <option>All</option>
-      <option>Brand A</option>
-      <option>Brand B</option>
-      <option>Brand C</option>
-    </select>
-  </aside> -->
     </main>
 
     <footer class="bg-gray-800 text-white text-center py-4">

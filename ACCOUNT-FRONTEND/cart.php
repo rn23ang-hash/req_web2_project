@@ -52,8 +52,7 @@ $grandTotal = 0;
                     <?php echo htmlspecialchars($user['first_name'] . " " . $user['last_name']); ?>
                 </h1>
                 <div class="text-sm text-gray-500 space-y-1">
-                    <p>ID: <span id="user-email" class="font-medium text-green-700">user@example.com</span></p>
-                    
+                    <p>Email: <span class="font-medium text-green-700"><?php echo htmlspecialchars($user['email']); ?></span></p>
                 </div>
             </div>
         </section>
@@ -73,7 +72,7 @@ $grandTotal = 0;
                 <a href="history.php">History </a>
             </li>
             <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent">
-                <a href="incoming.php">Incoming</a>
+                <a href="shipment.php">Incoming</a>
             </li>
             <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent">
                 <a href="seller.php">Seller</a>
@@ -83,7 +82,7 @@ $grandTotal = 0;
                     <a href="../index.php">Home</a>
                 </a>
             </li>
-            <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent text-green-300">Settings</li>
+            
         </ul>
     </nav>
 
@@ -124,7 +123,7 @@ $grandTotal = 0;
         <!-- Total and Checkout -->
         <div class="mt-8 pt-6 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <h2 class="text-xl font-bold text-gray-900">Total: <span class="text-green-700">₱<?= number_format($grandTotal, 2) ?></span></h2>
-            <form action="PHP/checkout-process.php" method="POST">
+            <form action="checkout.php" method="POST">
                 <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-xl shadow-md transition-all active:scale-95">
                     Check Out Selected
                 </button>

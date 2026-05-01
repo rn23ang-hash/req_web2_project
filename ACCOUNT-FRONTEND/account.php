@@ -1,5 +1,4 @@
 <?php
-// This MUST be the first thing in the file
 require '../PHP/session-script.php';
 ?>
 
@@ -31,8 +30,7 @@ require '../PHP/session-script.php';
                     <?php echo htmlspecialchars($user['first_name'] . " " . $user['last_name']); ?>
                 </h1>
                 <div class="text-sm text-gray-500 space-y-1">
-                    <p>ID: <span id="user-email" class="font-medium text-green-700">user@example.com</span></p>
-                    
+                    <p>Email: <span class="font-medium text-green-700"><?php echo htmlspecialchars($user['email']); ?></span></p>
                 </div>
             </div>
         </section>
@@ -52,7 +50,7 @@ require '../PHP/session-script.php';
                 <a href="history.php">History </a>
             </li>
             <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent">
-                <a href="incoming.php">Incoming</a>
+                <a href="shipment.php">Incoming</a>
             </li>
             <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent">
                 <a href="seller.php">Seller</a>
@@ -62,7 +60,7 @@ require '../PHP/session-script.php';
                     <a href="../index.php">Home</a>
                 </a>
             </li>
-            <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent text-green-300">Settings</li>
+            
         </ul>
     </nav>
 
