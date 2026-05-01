@@ -1,3 +1,8 @@
+<?php 
+    // This MUST be the first thing in the file
+    require '../PHP/session-script.php'; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +30,7 @@
             <p class="opacity-90 text-sm">Fill in the details below to list your eco-friendly item.</p>
         </div>
 
-        <form action="#" method="POST" class="p-6 md:p-10 space-y-8">
+        <form action="../PHP/additem-script.php" method="POST" class="p-6 md:p-10 space-y-8">
             
             <div class="space-y-4">
                 <label class="block text-sm font-bold text-gray-700 uppercase tracking-wider">Product Photos</label>
@@ -45,7 +50,7 @@
                 
                 <div class="md:col-span-2">
                     <label for="product-name" class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wider">Product Name</label>
-                    <input type="text" id="product-name" name="product-name" placeholder="e.g., Reusable Bamboo Cutlery Set" 
+                    <input type="text" id="product-name" name="product_name" placeholder="e.g., Reusable Bamboo Cutlery Set" 
                         class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all">
                 </div>
 
@@ -81,7 +86,7 @@
 
                 <div class="md:col-span-2">
                     <label for="description" class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wider">Product Description</label>
-                    <textarea id="description" name="description" rows="4" placeholder="Tell customers about the eco-friendly materials and benefits..." 
+                    <textarea id="description" name="product_description" rows="4" placeholder="Tell customers about the eco-friendly materials and benefits..." 
                         class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all"></textarea>
                 </div>
             </div>

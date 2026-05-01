@@ -84,10 +84,10 @@
                             </div>
 
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <a href="add-product.php" class="block w-full border-2 border-green-600 text-green-600 text-center font-bold py-3 rounded-lg hover:bg-green-50 transition">
+                                <a href="../SELLER-FRONTEND/add-items.php" class="block w-full border-2 border-green-600 text-green-600 text-center font-bold py-3 rounded-lg hover:bg-green-50 transition">
                                     + Post New Product
                                 </a>
-                                <a href="my-inventory.php" class="block w-full bg-gray-800 text-white text-center font-bold py-3 rounded-lg hover:bg-gray-900 transition">
+                                <a href="../SELLER-FRONTEND/inventory.php" class="block w-full bg-gray-800 text-white text-center font-bold py-3 rounded-lg hover:bg-gray-900 transition">
                                     Manage Inventory
                                 </a>
                             </div>
