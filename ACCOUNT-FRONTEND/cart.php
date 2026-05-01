@@ -1,15 +1,6 @@
-<?php
-    session_start();
-    include '../PHP/database.php';
-
-    //TO DO
-
-    //*if session false
-    //send users to ../index.php?error=nosession
-
-    //*relevant data
-    //first_name + last_name, email, location, payment info
-
+<?php 
+    // This MUST be the first thing in the file
+    require '../PHP/session-script.php'; 
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart | EcoShop Management</title>
+    <title>Cart | EcoShop</title>
     <link rel="stylesheet" href="">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,19 +16,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="tailwind.config.js"></script>
 </head>
+
 <body class="font-lexend bg-gray-50 text-gray-800">
     
     <header class="bg-white border-b border-green-100 py-6">
-       <section class="max-w-5xl mx-auto px-4 flex items-center space-x-6">
+        <section class="max-w-5xl mx-auto px-4 flex items-center space-x-6">
             <div class="relative">
                 <img class="h-20 w-20 rounded-full border-4 border-green-500 object-cover shadow-sm" src="../PICTURES/default-profile.svg" alt="User profile">
                 <!-- <span class="absolute bottom-0 right-0 h-5 w-5 bg-green-500 border-2 border-white rounded-full"></span> -->
             </div>
             <div class="flex flex-col">
-                <h1 id="user-fullname" class="text-2xl font-bold text-gray-900">Placeholder Name</h1>
+                <h1 id="user-fullname" class="text-2xl font-bold text-gray-900">
+                    <?php echo htmlspecialchars($user['first_name'] . " " . $user['last_name']); ?>
+                </h1>
                 <div class="text-sm text-gray-500 space-y-1">
                     <p>ID: <span id="user-email" class="font-medium text-green-700">user@example.com</span></p>
-                    <p>Mobile: <span id="user-mobile">0912-345-6789</span></p>
                     <p>Type: <span class="px-2 py-0.5 bg-green-100 text-green-800 rounded-full text-xs font-semibold">Buyer</span></p>
                 </div>
             </div>

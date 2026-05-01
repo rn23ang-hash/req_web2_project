@@ -1,24 +1,14 @@
-<?php
-session_start();
-include '../PHP/database.php';
-
-//TO DO
-
-//*if session false
-//send users to ../index.php?error=nosession
-
-//*relevant data
-//first_name + last_name, email, location, payment info
-
+<?php 
+    // This MUST be the first thing in the file
+    require '../PHP/session-script.php'; 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Update | EcoShop Management</title>
+    <title>My Account | EcoShop</title>
     <link rel="stylesheet" href="">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +26,9 @@ include '../PHP/database.php';
                 <!-- <span class="absolute bottom-0 right-0 h-5 w-5 bg-green-500 border-2 border-white rounded-full"></span> -->
             </div>
             <div class="flex flex-col">
-                <h1 id="user-fullname" class="text-2xl font-bold text-gray-900">Placeholder Name</h1>
+                <h1 id="user-fullname" class="text-2xl font-bold text-gray-900">
+                    <?php echo htmlspecialchars($user['first_name'] . " " . $user['last_name']); ?>
+                </h1>
                 <div class="text-sm text-gray-500 space-y-1">
                     <p>ID: <span id="user-email" class="font-medium text-green-700">user@example.com</span></p>
                     <p>Type: <span class="px-2 py-0.5 bg-green-100 text-green-800 rounded-full text-xs font-semibold">Buyer</span></p>

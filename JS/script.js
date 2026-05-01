@@ -159,3 +159,23 @@ if (hasEmptyFields) {
 signupForm.addEventListener("submit", signupValidate);
 
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('profile-menu-button');
+    const dropdown = document.getElementById('profile-dropdown');
+
+    if (menuButton && dropdown) {
+        menuButton.addEventListener('click', (e) => {
+            e.stopPropagation(); 
+            dropdown.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target) && !menuButton.contains(e.target)) {
+                dropdown.classList.add('hidden');
+            }
+        });
+    } else {
+        console.warn("Dropdown elements not found. Check IDs: profile-menu-button, profile-dropdown");
+    }
+});

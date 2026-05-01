@@ -2,12 +2,12 @@
 session_start();
 include 'PHP/database.php';
 
-$isLoggedIn = isset($_SESSION['user_id']);
-$firstName = $isLoggedIn ? $_SESSION['first_name'] : 'Guest';
+$isLoggedIn = isset($_SESSION['userId']); 
+$firstName = $isLoggedIn ? ($_SESSION['firstName'] ?? 'User') : 'Guest';
 
+// Fetch products for everyone to see
 $stmt = $conn->prepare("SELECT * FROM products");
 $stmt->execute();
-
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +55,7 @@ $stmt->execute();
 
 
                 <?php if ($isLoggedIn): ?>
-                    <a href="HTML-DEFAULT/account.php" class="flex items-center space-x-2" id="session-status-loggedin">
+                    <a href="ACCOUNT-FRONTEND/account.php" class="flex items-center space-x-2" id="session-status-loggedin">
                         <img src="PICTURES/default-profile.svg" alt="Profile Picture" class="w-10 h-10 rounded-full border">
                         <span class="font-semibold text-white"><?php echo htmlspecialchars($firstName); ?></span>
                     </a>
