@@ -1,10 +1,32 @@
-<?php 
-    // This MUST be the first thing in the file
-    require '../PHP/session-script.php'; 
+<?php
+// This MUST be the first thing in the file
+require '../PHP/session-script.php';
+
+
+// Fetch cart items with Product and Seller details
+$query = "SELECT 
+                c.id AS cart_id, 
+                c.quantity, 
+                p.product_name, 
+                p.price, 
+                u.first_name AS seller_name
+            FROM cart c
+            JOIN products p ON c.product_id = p.id
+            JOIN sellers s ON p.seller_id = s.id
+            JOIN users u ON s.user_id = u.id
+            WHERE c.user_id = :uid";
+
+$stmt = $conn->prepare($query);
+$stmt->execute(['uid' => $_SESSION['userId']]);
+$cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$grandTotal = 0;
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +40,7 @@
 </head>
 
 <body class="font-lexend bg-gray-50 text-gray-800">
-    
+
     <header class="bg-white border-b border-green-100 py-6">
         <section class="max-w-5xl mx-auto px-4 flex items-center space-x-6">
             <div class="relative">
@@ -48,7 +70,7 @@
                 Cart
             </li>
             <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent">
-               <a href="history.php">History </a>
+                <a href="history.php">History </a>
             </li>
             <li class="hover:text-white cursor-pointer transition-colors border-b-2 border-transparent">
                 <a href="incoming.php">Incoming</a>
@@ -65,55 +87,59 @@
         </ul>
     </nav>
 
-    <main class="max-w-5xl mx-auto p-4 md:p-8 space-y-12">
-        
-        <section id="account-cart" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-            <h2 class="text-xl font-bold mb-6 flex items-center">
-                <span class="bg-green-600 w-2 h-6 rounded-full mr-3"></span>
-                Your Cart
-            </h2>
-            
-            <div class="space-y-4">
-                <div class="flex items-center justify-between p-4 rounded-xl border border-gray-100 hover:bg-green-50 transition-colors">
-                    <div class="flex items-center space-x-4">
-                        <input id="checkout-item-1" type="checkbox" checked class="w-5 h-5 rounded text-green-600 focus:ring-green-500">
-                        <div>
-                            <h3 class="font-bold text-gray-800" id="checkout-item-name-1">Item 1</h3>
-                            <p class="text-sm text-gray-500" id="checkout-item-seller">Seller: <span class="text-green-600">Seller 1</span></p>
-                        </div>
-                    </div>
-                    <p class="font-bold text-lg text-gray-900">₱123.00</p>
-                </div>
+    <section id="account-cart" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+        <h2 class="text-xl font-bold mb-6 flex items-center">
+            <span class="bg-green-600 w-2 h-6 rounded-full mr-3"></span>
+            Your Cart
+        </h2>
 
-                <div class="flex items-center justify-between p-4 rounded-xl border border-gray-100 hover:bg-green-50 transition-colors">
-                    <div class="flex items-center space-x-4">
-                        <input id="checkout-item-2" type="checkbox" class="w-5 h-5 rounded text-green-600 focus:ring-green-500">
-                        <div>
-                            <h3 class="font-bold text-gray-800" id="checkout-item-name-2">Item 2</h3>
-                            <p class="text-sm text-gray-500" id="checkout-item-seller">Seller: <span class="text-green-600">Seller 2</span></p>
+        <div class="space-y-4">
+            <?php if (empty($cartItems)): ?>
+                <p class="text-gray-500 text-center py-10">Your cart is empty.</p>
+            <?php else: ?>
+                <?php foreach ($cartItems as $item):
+                    $itemTotal = $item['price'] * $item['quantity'];
+                    $grandTotal += $itemTotal;
+                ?>
+                    <div class="flex items-center justify-between p-4 rounded-xl border border-gray-100 hover:bg-green-50 transition-colors">
+                        <div class="flex items-center space-x-4">
+                            <!-- We use the cart_id as the value for checkboxes -->
+                            <input name="selected_items[]" value="<?= $item['cart_id'] ?>" type="checkbox" checked class="w-5 h-5 rounded text-green-600 focus:ring-green-500">
+                            <div>
+                                <h3 class="font-bold text-gray-800"><?= htmlspecialchars($item['product_name']) ?></h3>
+                                <p class="text-sm text-gray-500">
+                                    Seller: <span class="text-green-600"><?= htmlspecialchars($item['seller_name']) ?></span>
+                                    <?php if ($item['quantity'] > 1): ?>
+                                        <span class="ml-2 px-2 py-0.5 bg-gray-100 rounded text-xs">Qty: <?= $item['quantity'] ?></span>
+                                    <?php endif; ?>
+                                </p>
+                            </div>
                         </div>
+                        <p class="font-bold text-lg text-gray-900">₱<?= number_format($itemTotal, 2) ?></p>
                     </div>
-                    <p class="font-bold text-lg text-gray-900">₱456.00</p>
-                </div>
-            </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
 
-            <div class="mt-8 pt-6 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <h2 class="text-xl font-bold text-gray-900">Total: <span class="text-green-700">₱123.00</span></h2>
-                <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-xl shadow-md transition-all active:scale-95">
-                    <a href="confirmed.html">Check Out Selected</a>
+        <!-- Total and Checkout -->
+        <div class="mt-8 pt-6 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <h2 class="text-xl font-bold text-gray-900">Total: <span class="text-green-700">₱<?= number_format($grandTotal, 2) ?></span></h2>
+            <form action="PHP/checkout-process.php" method="POST">
+                <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-xl shadow-md transition-all active:scale-95">
+                    Check Out Selected
                 </button>
-            </div>
-        </section>
-        
-    </main>
+            </form>
+        </div>
+    </section>
 
     <footer class="py-10 text-center text-gray-400 text-sm">
         <p>EcoShop, an OM-BSIT Project</p>
     </footer>
 
-    
+
 
 
     <script src="JS/script.js"></script>
 </body>
+
 </html>

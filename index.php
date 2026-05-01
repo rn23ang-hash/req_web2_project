@@ -41,48 +41,59 @@ $stmt->execute();
         <img src="PICTURES/EcoShop_Logo_V2-2.svg" alt="EcoShop Logo" class="w-20 h-auto m-3">
     </div>
 
-    <header class=" bg-green-800  shadow-md">
+    <header class="bg-green-800 shadow-md w-full">
         <nav class="flex items-center justify-between px-6 py-4">
 
-            <div class="relative">
-                <form action="PHP/search-script.php" type="submit">
-                    <input type="text" placeholder="Search products..."
-                        class="border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
-                    <button class="absolute right-2 top-2 text-gray-500 hover:text-green-600">Go</button>
-                </form>
-
-            </div>
-
-            <ul class="flex space-x-6 text-white font-medium">
-                <!-- <li><a href="/HTML-DEFAULT/account.php" class="hover:text-green-600">Account</a></li> -->
-                <li><a href="account.html#account-incoming_orders" class="hover:text-green-600">Orders</a></li>
-                <li><a href="account.html#account-cart" class="hover:text-green-600">Cart</a></li>
-                <li><a href="account.html#account-history" class="hover:text-green-600">History</a></li>
-                <li><a href="help.html" class="hover:text-green-600">Help</a></li>
-            </ul>
-
             <div class="flex items-center space-x-4">
-
-
                 <?php if ($isLoggedIn): ?>
-                    <a href="ACCOUNT-FRONTEND/account.php" class="flex items-center space-x-2" id="session-status-loggedin">
-                        <img src="PICTURES/default-profile.svg" alt="Profile Picture" class="w-10 h-10 rounded-full border">
-                        <span class="font-semibold text-white"><?php echo htmlspecialchars($firstName); ?></span>
+                    <a href="ACCOUNT-FRONTEND/account.php" class="flex items-center space-x-2 group" id="session-status-loggedin">
+                        <img src="PICTURES/default-profile.svg" alt="Profile" class="w-10 h-10 rounded-full border border-green-600">
+                        <span class="font-semibold text-white group-hover:text-green-200 transition">
+                            <?php echo htmlspecialchars($firstName); ?>
+                        </span>
                     </a>
                 <?php else: ?>
                     <div class="flex space-x-2 session-status-default">
                         <a href="USER-AUTH/login.php"
-                            class="px-5 py-3 font-semibold text-green-600 bg-white border-2 border-green-600 rounded-lg hover:bg-green-50 transition-colors">
+                            class="px-4 py-2 text-sm font-semibold text-green-700 bg-white border border-white rounded-lg hover:bg-green-50 transition">
                             Log in
                         </a>
                         <a href="USER-AUTH/signup.php"
-                            class="px-5 py-3 font-semibold text-white bg-green-600 border-2 border-green-600 rounded-lg hover:bg-green-700 transition-colors">
+                            class="px-4 py-2 text-sm font-semibold text-white bg-green-700 border border-green-500 rounded-lg hover:bg-green-600 transition">
                             Sign up
                         </a>
                     </div>
                 <?php endif; ?>
             </div>
 
+            <div class="flex-grow max-w-md mx-6">
+                <div class="relative">
+                    <form action="PHP/search-script.php" method="GET">
+                        <input type="text" name="query" placeholder="Search products..."
+                            class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 bg-white">
+                        <button type="submit" class="absolute right-2 top-2 text-gray-500 hover:text-green-600 font-bold px-2">
+                            Go
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-8">
+                <ul class="flex space-x-6 text-white font-medium">
+                    <li><a href="account.html#account-incoming_orders" class="hover:text-green-300 transition">Orders</a></li>
+                    <li><a href="account.html#account-cart" class="hover:text-green-300 transition">Cart</a></li>
+                    <li><a href="account.html#account-history" class="hover:text-green-300 transition">History</a></li>
+                    <li><a href="help.html" class="hover:text-green-300 transition">Help</a></li>
+                </ul>
+
+                <?php if ($isLoggedIn): ?>
+                    <form action="PHP/clear-session-script.php" method="POST" class="ml-4">
+                        <button type="submit" class="px-4 py-2 text-sm font-bold text-white bg-red-600 rounded-lg hover:bg-red-700 transition shadow-md">
+                            Logout
+                        </button>
+                    </form>
+                <?php endif; ?>
+            </div>
 
         </nav>
     </header>
