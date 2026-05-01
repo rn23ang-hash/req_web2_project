@@ -34,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         
         $stmt_insert = $conn->prepare($sql_insert);
         
-        // Execute ONCE inside the conditional
         if ($stmt_insert->execute([
             'email'=> $email,
             'pwd' => $hashed_pwd,
@@ -42,16 +41,19 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             'lname'=> $lastname,
             'dob'=> $date_of_birth
         ])) {
-            // 3. Set Session and Redirect
-            $_SESSION['user_id'] = $conn->lastInsertId();
-            $_SESSION['first_name'] = $firstname;
+            
+            // --- SYNCED SESSION LOGIC ---
+            // Use 'userId' and 'userEmail' to match your login-script.php exactly
+            $_SESSION['userId'] = $conn->lastInsertId();
+            $_SESSION['userEmail'] = $email;
+            // Optional: Store firstName here too so index.php doesn't have to fetch it
+            $_SESSION['firstName'] = $firstname; 
 
             header("Location: ../index.php?signup=success");
             exit();
         }
 
     } catch (PDOException $e) {
-        // If the email check somehow failed and a duplicate snuck through
         if ($e->errorInfo[1] == 1062) {
             header("Location: ../USER-AUTH/signup.php?error=emailtaken");
         } else {

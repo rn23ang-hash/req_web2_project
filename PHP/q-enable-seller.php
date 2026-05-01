@@ -18,15 +18,15 @@ try {
     
     if ($stmt->execute()) {
         // 3. Jump back to the account page immediately
-        header("Location: ../USER-AUTH/account.php?seller=enabled");
+        header("Location: ../ACCOUNT-FRONTEND/account.php?seller=enabled");
         exit();
     } else {
-        header("Location: ../USER-AUTH/account.php?error=updatefailed");
+        header("Location: ../ACCOUNT-FRONTEND/account.php?error=updatefailed");
         exit();
     }
 
 } catch (PDOException $e) {
     // Log error and redirect
-    header("Location: ../USER-AUTH/account.php?error=sqlerror");
+    header("Location: ../ACCOUNT-FRONTEND/account.php?error=sqlerror");
     exit();
 }

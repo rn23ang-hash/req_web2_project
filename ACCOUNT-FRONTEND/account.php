@@ -143,7 +143,7 @@ require '../PHP/session-script.php';
                 </div>
 
                 <!-- Separated Logout Form -->
-                <form action="logout-script.php" id="logout-form" method="post" class="w-full">
+                <form action="../PHP/clear-session-script.php" id="logout-form" method="post" class="w-full">
                     <button type="submit" class="w-full bg-red-600 text-white mb-2 mt-2 font-bold py-2 rounded hover:bg-red-700 transition">
                         Logout
                     </button>
